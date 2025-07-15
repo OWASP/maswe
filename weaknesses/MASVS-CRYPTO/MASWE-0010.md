@@ -13,7 +13,7 @@ refs:
 - https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf
 description: e.g. PBKDF2 with insufficient iterations, lack of salt, etc.
 topics:
-- improper cryptography
+- sources with insufficient entropy
 - lack of salt encryption when doing PBKDF2
 status: new
 
