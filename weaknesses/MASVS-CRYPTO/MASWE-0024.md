@@ -16,13 +16,13 @@ refs:
 - https://datatracker.ietf.org/doc/html/rfc6151
 - https://web.archive.org/web/20170810051504/http://www.tcs.hut.fi/old/papers/aura/aura-csfws97.pdf
 - https://en.wikipedia.org/wiki/Replay_attack
-draft:
-  description: Improper use of MAC. E.g. allowing the user to control the input.
-    may expose cryptographic vulnerabilities, affecting data integrity.
-  topics: null
-status: draft
+
+status: new
 
 ---
+
+## Overview
+
 Improper use of a MAC by e.g., generating a MAC over a message without the timestamp can make the application susceptible for replay attacks.
 
 Another common issue is using an HMAC with any type of general based hashing algorithm like MD5, SHA-1, SHA-2 or even SHA-3 on low-entropy input like user supplied passwords and pins. HMAC aren't designed for low-entropy inputs or low-entropy keys. Doing so will result in producing "weak" message digests that easily can be exploited.
