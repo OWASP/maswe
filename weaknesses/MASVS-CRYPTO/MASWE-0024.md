@@ -16,8 +16,16 @@ refs:
 - https://datatracker.ietf.org/doc/html/rfc6151
 - https://web.archive.org/web/20170810051504/http://www.tcs.hut.fi/old/papers/aura/aura-csfws97.pdf
 - https://en.wikipedia.org/wiki/Replay_attack
-description: Improper use of MAC. E.g. allowing the user to control the input may expose cryptographic vulnerabilities, affecting data integrity.
-topics: null
+description: Improper use of MACs in security sensitive contexts affecting data integrity.
+topics:
+- Using HMAC with keys with insufficient entropy
+- Using HMAC with missing timestamp (or nonce)
+- Using MAC‑then‑encrypt or encrypt‑then‑MAC incorrectly, leaking information via timing or error messages
+- Allowing predictors (users or attackers) to control data inputs, creating scenarios where forged or replayed tags bypass integrity checks.
+- Hash functions lacking collision resistance (e.g., MD5 or SHA‑1 used in HMAC)
+- Use of non‑cryptographic checksums (e.g., CRC‑32 instead of HMAC)
+- MAC constructions that fail outside narrow assumptions (e.g., raw CBC‑MAC on variable‑length messages)
+- Tags that are too short significantly lower the effort required for forgery
 status: new
 
 ---
