@@ -15,6 +15,10 @@ refs:
 - https://cwe.mitre.org/data/definitions/328.html
 - https://en.wikipedia.org/wiki/Collision_attack
 - https://csrc.nist.gov/pubs/ir/8547/ipd
+description: Utilizing broken hashing algorithms such as MD5 and SHA1 in a security
+    sensitive context may compromise data integrity and authenticity.
+topics:
+- Broken hashing algorithms (e.g. MD5, SHA1, etc.)
 status: new
 
 ---
