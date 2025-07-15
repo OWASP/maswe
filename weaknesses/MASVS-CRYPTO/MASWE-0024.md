@@ -16,7 +16,8 @@ refs:
 - https://datatracker.ietf.org/doc/html/rfc6151
 - https://web.archive.org/web/20170810051504/http://www.tcs.hut.fi/old/papers/aura/aura-csfws97.pdf
 - https://en.wikipedia.org/wiki/Replay_attack
-
+description: Improper use of MAC. E.g. allowing the user to control the input may expose cryptographic vulnerabilities, affecting data integrity.
+topics: null
 status: new
 
 ---
