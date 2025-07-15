@@ -11,11 +11,10 @@ mappings:
 
 refs:
 - https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf
-draft:
-  description: e.g. PBKDF2 with insufficient iterations, lack of salt, etc.
-  topics:
-  - improper cryptography
-  - lack of salt encryption when doing PBKDF2
+description: e.g. PBKDF2 with insufficient iterations, lack of salt, etc.
+topics:
+- improper cryptography
+- lack of salt encryption when doing PBKDF2
 status: new
 
 ---
