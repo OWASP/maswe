@@ -17,9 +17,12 @@ refs:
 draft:
   description: The use of algorithms with insufficient strength for signatures such as SHA1withRSA, etc. in a security-sensitive context should be avoided to ensure the integrity and authenticity of the data.
   topics: null
-status: draft
+status: new
 
 ---
+
+## Overview
+
 Using deprecated, risky or broken algorithms for the purpose of ensuring accountability and non-reputation through the use of signatures could make it possible for an attacker to execute digital signature forgery and compromise the integrity and authenticity of the data at rest and in transit.
 
 ## Impact
