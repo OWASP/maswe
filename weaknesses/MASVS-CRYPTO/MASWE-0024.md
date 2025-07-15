@@ -1,7 +1,7 @@
 ---
 title: Improper Use of Message Authentication Code (MAC)
 id: MASWE-0024
-alias: weak-mac
+alias: improper-mac
 platform: [android, ios]
 profiles: [L1, L2]
 mappings:
