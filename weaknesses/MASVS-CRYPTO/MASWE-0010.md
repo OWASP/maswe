@@ -11,7 +11,6 @@ mappings:
 
 refs:
 - https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf
-
 status: new
 
 ---
