@@ -19,8 +19,6 @@ draft:
     sensitive context may compromise data integrity and authenticity.
   topics:
   - Broken hashing algorithms (e.g. MD5, SHA1, etc.)
-  - Improper salting when doing password hashing using e.g. PBKDF2
-  - Improper storage of password hashes
 status: placeholder
 
 ---
