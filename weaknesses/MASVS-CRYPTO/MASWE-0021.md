@@ -15,7 +15,6 @@ refs:
 - https://cwe.mitre.org/data/definitions/328.html
 - https://en.wikipedia.org/wiki/Collision_attack
 - https://csrc.nist.gov/pubs/ir/8547/ipd
-
 status: new
 
 ---
