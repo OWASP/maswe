@@ -1,6 +1,6 @@
 ---
 title: Sensitive Data Leaked via Malicious Embedded Libraries
-id: MASWE-xxxA
+id: MASWE-xxxB
 alias: data-leak-malicious-libraries
 platform: [android, ios]
 profiles: [???]
