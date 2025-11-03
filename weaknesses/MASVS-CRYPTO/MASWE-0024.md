@@ -33,7 +33,7 @@ status: placeholder
 
 ## Overview
 
-Improper use of a MAC by e.g., generating a MAC over a message without the timestamp can make the application susceptible for replay attacks.
+Improper use of a MAC by e.g., not using proper sequence numbers or timestamps, may allow MAC forgeries making it possible to compromiss the authenticity and integrity of the data.
 
 Another common issue is using an HMAC with any type of general based hashing algorithm like MD5, SHA-1, SHA-2 or even SHA-3 on low-entropy input like user supplied passwords and pins. HMAC aren't designed for low-entropy inputs or low-entropy keys. Doing so will result in producing "weak" message digests that easily can be exploited.
 
@@ -41,12 +41,13 @@ A deprecated HMAC implementation may contain bugs that could compromise the auth
 
 ## Impact
 
-- **Loss of Integrity and authenticity**: Improper use of MAC may result in replay attacks or, in worse case, broken authentication that could compromise the integrity of a system.
+- **Loss of authenticity**: Improper use of MAC may allow an attacker to compromise the authenticity of the data making the data appear authentic.
+- **Loss of Integrity**: Improper use of MAC may allow an attacker to alter the data thereby compromising it's integrity.
 - **Loss of Confidentiality**: Using MAC for other purposes than authentication may lead to a complete loss of confidentiality.
 
 ## Modes of Introduction
 
-- **Not including a timestamp**: Creating a MAC for message authentication without using a proper timestamp that can be validated for the possibility of replay-attacks.
+- **Not including a timestamp**: Creating a MAC for message authentication without using a proper timestamp that can be validated to protect against MAC forgery.
 - **Using a MAC with low-entropy keys**: Using low-entropy inputs or low-entropy keys as input to a HMAC.
 
 ## Mitigations
