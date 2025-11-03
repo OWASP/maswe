@@ -34,6 +34,5 @@ Using deprecated, risky, or broken algorithms in signatures (such as MD5 or SHA-
 
 ## Mitigations
 
-- **Choose collision resistant algorithm**: Choose a signature algorithm that is sufficiently collision resistant like RSA (3072 bits and higher), ECDSA with NIST P-384 or EdDSA with Edwards448.
-
-- **Choose a signing scheme that make use of algorithms with sufficient bit-lengths**: As our computers gets stronger, previously generated hashes get weaker, therefore, make sure that you can adjust the bit-length length (strength) of the algorithm of your choosing. When signatures are stored at rest, make sure to follow the software industry's long term recommendations (e.g. ["NIST: Transition to Post-Quantum Cryptography Standards"](https://csrc.nist.gov/pubs/ir/8547/ipd)).
+- **Choose a collision-resistant algorithm**: Choose a signature algorithm that is sufficiently collision-resistant, like RSA (3072 bits and higher), ECDSA with NIST P-384, or EdDSA with Edwards448.
+- **Choose a signing scheme that makes use of algorithms with sufficient bit-lengths**: As our computers get stronger, previously generated hashes get weaker. Therefore, make sure you can adjust the bit length (strength) of the algorithm you choose. When signatures are stored at rest, make sure to follow the software industry's long-term recommendations (e.g., ["NIST: Transition to Post-Quantum Cryptography Standards"](https://csrc.nist.gov/pubs/ir/8547/ipd)).
