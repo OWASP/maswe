@@ -11,9 +11,12 @@ mappings:
 
 refs:
 - https://developer.android.com/privacy-and-security/cryptography#deprecated-functionality
-- https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf
 - https://cwe.mitre.org/data/definitions/328.html
 - https://en.wikipedia.org/wiki/Collision_attack
+- https://csrc.nist.gov/pubs/sp/800/131/a/r2/final
+- https://csrc.nist.gov/pubs/sp/800/185/final
+- https://csrc.nist.gov/pubs/fips/202/final
+- https://csrc.nist.gov/pubs/fips/180-4/upd1/final
 - https://csrc.nist.gov/pubs/ir/8547/ipd
 status: new
 
