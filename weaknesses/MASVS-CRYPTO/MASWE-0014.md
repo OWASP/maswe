@@ -30,7 +30,7 @@ Attackers can decompile or reverse-engineer the app to extract hardcoded keys.
 
 ## Modes of Introduction
 
-- **Insecure Storage Locations**: Storing cryptographic keys in unencrypted SharedPreferences, unprotected files, or other insecure locations.
+- **Insecure Storage Locations**: Storing cryptographic keys in locations that are not designed for secure storage, such as regular configuration or user preferences files, application data directories, or other areas lacking encryption and access control mechanisms.
 - **Hardcoded Keys**: Including cryptographic keys directly in the application code, making them susceptible to extraction through decompilation and reverse-engineering.
 - **Lack of Encryption**: Exporting cryptographic keys in plain text without encrypting them using a secure method.
 
