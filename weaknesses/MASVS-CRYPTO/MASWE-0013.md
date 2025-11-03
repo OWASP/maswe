@@ -8,9 +8,6 @@ mappings:
   masvs-v1: [MSTG-CRYPTO-1]
   masvs-v2: [MASVS-CRYPTO-2]
 status: deprecated
+covered_by: [MASWE-0014]
+deprecation_note: Content overlap.
 ---
-
-
-!!! warning "Deprecated"
-
-    This weakness was deprecated in favor of @MASWE-0014 because of an overlap in the content.

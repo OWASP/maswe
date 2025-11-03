@@ -5,14 +5,10 @@ alias: insecure-confirm-credentials
 platform: [android]
 profiles: [L2]
 mappings:
-  masvs-v2: [MASVS-AUTH-1]
+  masvs-v2: [MASVS-AUTH-2]
   cwe: [287, 319]
 
-draft:
-  description: https://mas.owasp.org/MASTG/tests/android/MASVS-AUTH/MASTG-TEST-0017/
-  topics:
-  - Confirm Credentials
-status: placeholder
-
+status: deprecated
+covered_by: [MASWE-0044]
+deprecation_note: Content overlap. Confirm Credentials is a form of local authentication that will have a dedicated MASTG test.
 ---
-

@@ -19,3 +19,4 @@ jobs:
           config-file: '.github/workflows/config/url-checker-config.json'
           folder-path: '.'
           check-modified-files-only: 'yes'
+          base-branch: 'main'
