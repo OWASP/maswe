@@ -20,7 +20,7 @@ status: new
 
 ## Overview
 
-Using deprecated, risky or broken algorithms for the purpose of ensuring accountability and non-reputation through the use of signatures could make it possible for an attacker to execute digital signature forgery and compromise the integrity and authenticity of the data at rest and in transit.
+Using deprecated, risky, or broken algorithms in signatures (such as MD5 or SHA-1) could enable an attacker to commit digital signature forgery, thereby undermining integrity, authenticity, and non-repudiation.
 
 ## Impact
 
