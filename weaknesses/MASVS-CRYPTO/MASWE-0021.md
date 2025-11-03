@@ -23,7 +23,7 @@ status: new
 
 ---
 
-Choosing a deprecated, risky or broken hash algorithm, that is insufficiently collision resistant, may compromise the integrity and authenticity of data at rest and in transit by making the app vulnerable to collision attacks.
+Choosing a deprecated, risky, or broken hash algorithm that is insufficiently collision-resistant may compromise data integrity.
 
 when performing key derivation together with predictable input or in password hashing, the digest (or hash) of an improper implemented or used hash function may allow an adversary to reasonably determine the original input (preimage attack), find another input that can produce the same hash (second preimage attack), or find multiple inputs that evaluate to the same hash (birthday attack/collision attack), given the actor can arbitrarily choose the inputs to be hashed and can do so a reasonable amount of times.
 
