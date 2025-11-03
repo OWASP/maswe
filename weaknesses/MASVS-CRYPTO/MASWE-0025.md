@@ -24,7 +24,8 @@ Using deprecated, risky, or broken algorithms in signatures (such as MD5 or SHA-
 
 ## Impact
 
-- **Loss of Integrity and authenticity**: Signature forgery may allow the attacker to compromise the integrity and authenticity of the data by signing the data on behalf of another entity.
+- **Loss of authenticity**: Signature forgery may allow the attacker to sign the data on behalf of another entity, thereby casting doubt on where the data came from.
+- **Loss of Integrity**: Signature forgery may allow the attacker to alter the data which would compromise it's integrity.
 - **Loss of accountability**: Signature forgery allows for plausible deniability and diminishes accountability.
 
 ## Modes of Introduction
