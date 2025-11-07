@@ -1,5 +1,5 @@
 ---
-title: Improper Generation of Cryptographic Signatures
+title: Improper Generation of Digital Signatures
 id: MASWE-0025
 alias: improper-signature-generation
 platform: [android, ios]
