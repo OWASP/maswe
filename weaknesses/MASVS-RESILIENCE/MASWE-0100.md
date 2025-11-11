@@ -49,7 +49,7 @@ If the app doesn't use attestation APIs or services the backend cannot ensure re
 - **App Executed in outdated Environment**: Users may run the application on outdated platforms that have no security patches installed.
 - **App Executed in untrusted Environment**: Attackers may run the application on rooted or jailbroken devices without detection.
 
-## Mode of Introduction
+## Modes of Introduction
 
 - **Weak Architecture**: The application does not include device attestation in its security model, assuming the device environment can be trusted.
 - **Reliance on Weak Checks**: Instead of proper attestation, the app only performs basic root/jailbreak detection, which is easily bypassed.  
