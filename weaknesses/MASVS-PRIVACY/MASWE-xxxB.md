@@ -1,5 +1,5 @@
 ---
-title: Dependencies Know to be Malicious
+title: Dependencies Known to be Malicious
 id: MASWE-xxxB
 alias: data-leak-malicious-libraries
 platform: [android, ios]
