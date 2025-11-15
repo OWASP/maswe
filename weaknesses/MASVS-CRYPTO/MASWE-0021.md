@@ -24,17 +24,11 @@ status: new
 
 ## Overview
 
----
+Using deprecated, risky, or broken hash algorithms may compromise data integrity and make offline attacks practical. In mobile apps this often appears in three areas: hashing for integrity of local data, hashing of passwords or PINs, and hashing or deriving keys from low-entropy identifiers. Weak or misused hash functions allow adversaries to tamper with data, find collisions, recover secrets, or brute force hashed values.
 
-Choosing a deprecated, risky, or broken hash algorithm that is insufficiently collision-resistant may compromise data integrity.
+Hash functions that no longer provide adequate [collision](https://en.wikipedia.org/wiki/Collision_attack) or [preimage](https://en.wikipedia.org/wiki/Preimage_attack) resistance, such as MD5 and SHA-1, enable adversaries to craft different inputs that produce the same hash or to recover the original input more efficiently than brute force. Similarly, using generic fast hash functions for low-entropy inputs like passwords, PINs, device identifiers, or email addresses allows practical offline brute force or dictionary attacks.
 
-When performing key derivation with predictable input, or in password hashing, using an improperly implemented or chosen hash function can be dangerous. An adversary may be able to reasonably determine the original input (preimage attack), find another input that produces the same hash (second preimage attack), or find multiple inputs that evaluate to the same hash (birthday attack/collision attack). These attacks are possible if the attacker can arbitrarily choose the inputs to be hashed and can do so a reasonable number of times.
-
-What is regarded as "reasonable" varies by context and threat model, but in general, "reasonable" could cover any attack that is more efficient than brute force (i.e., on average, attempting half of all possible combinations). Note that some attacks might be more efficient than brute force, but are still not regarded as achievable in the real world.
-
-Any algorithm not meeting the above conditions will be considered risky or too "weak" for general use in hashing. When a collision attack is discovered and is found to be faster than a birthday attack, a hash function is often denounced as "broken". This is the case for MD5 and SHA-1.
-
-Another common issue is using an HKDF for key derivation with any type of integrity-based hashing algorithm like MD5, SHA-1, SHA-2, or even SHA-3 on low-entropy input like user-supplied passwords and pins. HKDF isn't designed for low-entropy inputs. Doing so will produce "weak" hashes that can easily be broken.
+Hash-based KDFs such as HKDF are suitable only when the input secret already has high entropy. They are not appropriate as substitutes for password hashing functions because they do not provide work factors or memory hardness.
 
 ## Impact
 
