@@ -28,7 +28,7 @@ status: new
 
 Choosing a deprecated, risky, or broken hash algorithm that is insufficiently collision-resistant may compromise data integrity.
 
-when performing key derivation together with predictable input or in password hashing, the digest (or hash) of an improper implemented or used hash function may allow an adversary to reasonably determine the original input (preimage attack), find another input that can produce the same hash (second preimage attack), or find multiple inputs that evaluate to the same hash (birthday attack/collision attack), given the actor can arbitrarily choose the inputs to be hashed and can do so a reasonable amount of times.
+When performing key derivation with predictable input, or in password hashing, using an improperly implemented or chosen hash function can be dangerous. An adversary may be able to reasonably determine the original input (preimage attack), find another input that produces the same hash (second preimage attack), or find multiple inputs that evaluate to the same hash (birthday attack/collision attack). These attacks are possible if the attacker can arbitrarily choose the inputs to be hashed and can do so a reasonable number of times.
 
 What is regarded as "reasonable" varies by context and threat model, but in general, "reasonable" could cover any attack that is more efficient than brute force (i.e., on average, attempting half of all possible combinations). Note that some attacks might be more efficient than brute force, but are still not regarded as achievable in the real world.
 
@@ -44,12 +44,12 @@ Another common issue is using an HKDF for key derivation with any type of integr
 
 ## Modes of Introduction
 
-- **using a deprecated, risky, or broken hashing algorithm**: E.g., MD5 and SHA-1 have been identified to be vulnerable to collision attacks that are faster than a birthday attack.
+- **Using a deprecated, risky, or broken hashing algorithm**: E.g., MD5 and SHA-1 have been identified to be vulnerable to collision attacks that are faster than a birthday attack.
 - **Using a hash susceptible to length extension attacks**: E.g., MD5 and SHA-1 have been identified to be vulnerable to length extension attacks.
 - **Using non-resource-intensive algorithms on low-entropy input**: Using an integrity-based hashing algorithm to hash low-entropy input like pin numbers would make brute-force or dictionary attacks trivial.
 
 ## Mitigations
 
 - **Choose collision-resistant algorithm**: Choose an algorithm that is sufficiently collision-resistant, like the integrity algorithms SHA-2 (with 256, 384, 512 bits), BLAKE3 and the SHA-3 family
-- **Choose an algorithm with sufficient bit-lengths**: As our computers get stronger, the hashes get weaker, therefore, make sure that you can adjust the bit-length of the algorithm of your choosing. When hashes are stored at rest, make sure to follow the software industry's long-term recommendations (e.g, ["NIST: Transition to Post-Quantum Cryptography Standards](https://csrc.nist.gov/pubs/ir/8547/ipd)").
+- **Choose an algorithm with sufficient bit-lengths**: As our computers get stronger, the hashes get weaker, therefore, make sure that you can adjust the bit-length of the algorithm of your choosing. When hashes are stored at rest, make sure to follow the software industry's long-term recommendations (e.g., ["NIST: Transition to Post-Quantum Cryptography Standards](https://csrc.nist.gov/pubs/ir/8547/ipd)").
 - **Choose an algorithm fit for its purpose**: To ensure the data's integrity, choose an integrity-based algorithm. When you want to hash low-entropy input, choose a password hash algorithm. Don't try to be clever. Follow recommendations and guidelines.
