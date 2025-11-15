@@ -38,9 +38,10 @@ Hash-based KDFs such as HKDF are suitable only when the input secret already has
 
 ## Modes of Introduction
 
-- **Using a deprecated, risky, or broken hashing algorithm**: E.g., MD5 and SHA-1 have been identified to be vulnerable to collision attacks that are faster than a birthday attack.
-- **Using a hash susceptible to length extension attacks**: E.g., MD5 and SHA-1 have been identified to be vulnerable to length extension attacks.
-- **Using non-resource-intensive algorithms on low-entropy input**: Using an integrity-based hashing algorithm to hash low-entropy input like pin numbers would make brute-force or dictionary attacks trivial.
+- **Using a deprecated, risky, or broken hashing algorithm**: Examples include MD5 and SHA-1, which have practical collision attacks faster than the birthday bound.
+- **Using raw hash constructions where a MAC is required**: For example computing SHA-256(secret || data) or SHA-256(data || secret) instead of using HMAC, making the scheme vulnerable to length extension and structural attacks.
+- **Using non-resource-intensive algorithms on low-entropy input**: For example hashing passwords or PINs with a single SHA-256 call instead of using a proper password hashing function with salt and work factor.
+- **Using unsafe or overly short truncation of hashes**: For instance truncating a message digest to below recommended lengths reduces its security strength. [NIST SP 800-107 Rev 1](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-107r1.pdf) indicates: "The length of truncated message digests used shall be at least twice the desired security strength required for the digital signature".
 
 ## Mitigations
 
