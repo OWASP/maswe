@@ -32,9 +32,9 @@ Hash-based KDFs such as HKDF are suitable only when the input secret already has
 
 ## Impact
 
-- **Loss of authenticity**: A hashing algorithm, known to be vulnerable to collision attacks, may compromise the authenticity of the data as it allows for two data sources to be identical.
-- **Loss of integrity**: Algorithms that are susceptible to length extension attacks may allow an attacker to compromise the integrity of the data by appending data to the original data source.
-- **Loss of confidentiality**: A hashing algorithm, known to be vulnerable to pre-image attacks, increases the likelihood that encrypted data can be leaked through using cryptoanalysis or brute-force.
+- **Account compromise**: Storing passwords, PINs, tokens, or other low-entropy secrets using fast generic hash functions such as SHA-256 allows attackers who obtain the hashes to perform offline brute force attacks and recover credentials.
+- **Loss of integrity**: If an app uses a collision-prone or structurally weak hash to protect configuration files or offline data, an attacker may modify the data and still pass integrity checks by generating a colliding value.
+- **Loss of confidentiality**: If encryption keys or key encryption keys are derived by hashing low-entropy input, such as device identifiers or user passwords, attackers can brute force the hash, recover the key, and decrypt protected data.
 
 ## Modes of Introduction
 
