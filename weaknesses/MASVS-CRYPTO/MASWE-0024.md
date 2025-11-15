@@ -35,7 +35,7 @@ status: placeholder
 
 Improper use of a MAC, e.g., not using proper nonces or timestamps, may allow MAC forgeries, making it possible to compromise the authenticity and integrity of the data.
 Not applying the MAC in the correct order when using CBC mode during encryption, e.g., creating the MAC before encrypting the data instead of after to ensure the authenticity and integrity of the encrypted data.
-Another common issue is using an HMAC with any type of general-based hashing algorithm like MD5, SHA-1, SHA-2 or even SHA-3 on low-entropy input like user-supplied passwords, pins or other user-controlled predictors. HMACs aren't designed for low-entropy inputs or low-entropy keys. Doing so will result in producing "weak" message digests that can easily be exploited.
+Another common issue is using an HMAC with any type of general-purpose hashing algorithm (like MD5, SHA-1, SHA-2, or even SHA-3) on low-entropy input, such as user-supplied passwords, PINs, or other user-controlled predictors. HMACs are not designed for use with low-entropy inputs or low-entropy keys. Using HMACs in this way will result in "weak" message digests that can easily be exploited.
 Deprecated or risky HMAC implementations like HMAC-MD5 or HMAC-SHA1 are vulnerable to collision attacks that would compromise the authenticity and integrity of the data. Collision attacks can also be made possible through truncating the HMAC digest. If truncating is necessary for interoperability, never truncate the digest below 128 bits and use the full HMAC whenever possible. Finally, never create checksums using non-cryptographically secure algorithms like CRC‑32, which are not meant for cryptographic purposes.
 
 ## Impact
@@ -57,7 +57,7 @@ Deprecated or risky HMAC implementations like HMAC-MD5 or HMAC-SHA1 are vulnerab
 
 - **Use MAC with a timestamp**: Generate the MAC over a message with the timestamp included. This should protect the application against replay attacks within a reasonable amount of time. Reasonable, meaning a time frame that is short enough to prevent an attacker from sending an identical message and long enough to allow the message to be sent and digested.
 - **Do not use HMAC together with a low-entropy key**: Ensure the keys used are generated using cryptographically secure PRNGs (CSPRNG) generate random numbers that pass statistical randomness tests, and are resilient against prediction attacks.
-- **Do not use a MAC together with a predictor**: Ensure HMACs
+- **Do not use a MAC together with a predictor**: Ensure that all inputs to the MAC are unpredictable and not controlled by the user or attacker. Never use user-controllable or predictable data as input to a MAC, as this can allow attackers to forge valid MACs.
 - **Do not use deprecated HMAC implementations**: Deprecated HMAC implementations could contain errors that allow for collision attacks. Therefore, only use recommended libraries and functions.
-- **Do not use non-cryptographically secure algorithms**: Algorithms like e.g. CRC‑32 is not meant to be used for cryptographic purposes.
+- **Do not use non-cryptographically secure algorithms**: Algorithms like e.g. CRC‑32 are not meant to be used for cryptographic purposes.
 - **Use the complete HMAC digest and avoid truncation**: When possible, always use the complete HMAC digest. When truncating is necessary, never make it shorter than 128 bits.
