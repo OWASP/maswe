@@ -45,6 +45,6 @@ Hash-based KDFs such as HKDF are suitable only when the input secret already has
 
 ## Mitigations
 
-- **Choose collision-resistant algorithm**: Choose an algorithm that is sufficiently collision-resistant, like the integrity algorithms SHA-2 (with 256, 384, 512 bits), BLAKE3 and the SHA-3 family
-- **Choose an algorithm with sufficient bit-lengths**: As our computers get stronger, the hashes get weaker, therefore, make sure that you can adjust the bit-length of the algorithm of your choosing. When hashes are stored at rest, make sure to follow the software industry's long-term recommendations (e.g., ["NIST: Transition to Post-Quantum Cryptography Standards](https://csrc.nist.gov/pubs/ir/8547/ipd)").
-- **Choose an algorithm fit for its purpose**: To ensure the data's integrity, choose an integrity-based algorithm. When you want to hash low-entropy input, choose a password hash algorithm. Don't try to be clever. Follow recommendations and guidelines.
+- **Choose collision-resistant algorithm with sufficient bit-lengths**: Choose SHA-2 (256, 384, or 512 bits) or the SHA-3 family for integrity and fingerprinting purposes.
+- **Match the algorithm to the purpose**: Use password hashing functions for passwords and PINs. Use hash based KDFs only when the input secret already has high entropy. Do not treat general purpose hash functions as password hashing or key stretching mechanisms.
+- **Avoid truncating hashes too aggressively**: As stated in [NIST SP 800-107 Rev 1](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-107r1.pdf), ensure that when truncating digests the truncated length is at least twice the targeted security strength.
