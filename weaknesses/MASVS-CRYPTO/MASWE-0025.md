@@ -20,7 +20,7 @@ status: new
 
 ## Overview
 
-Using deprecated, risky, or broken algorithms in signatures (such as MD5 or SHA-1) could enable an attacker to commit digital signature forgery, thereby undermining integrity, authenticity, and non-repudiation.
+Using deprecated, risky, or broken hash or signature algorithms, such as MD5withRSA or SHA1withRSA, can allow attackers to forge digital signatures. In mobile apps this can enable tampering with locally verified data such as configuration files, licenses, feature flags, offline content, or cached responses while still passing signature checks, breaking authenticity, integrity, and accountability.
 
 ## Impact
 
