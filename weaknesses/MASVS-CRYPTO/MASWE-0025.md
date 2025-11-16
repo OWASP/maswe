@@ -30,8 +30,9 @@ Using deprecated, risky, or broken hash or signature algorithms, such as MD5with
 
 ## Modes of Introduction
 
-- **Using a deprecated, risky, or broken hashing algorithm**: e.g., MD5 and SHA-1 have been identified to be vulnerable to collision attacks that are faster than a birthday attack. Because of this, they are denounced as "broken".
-- **Using an insufficiently collision-resistant hash**: Choosing a hashing algorithm of insufficient length may result in loss of integrity or confidentiality.
+- **Using deprecated, risky, or broken algorithms**: For example, choosing RSA SHA1 or RSA MD5 algorithms, even when documentation marks them as deprecated.
+- **Using insufficient key sizes**: For example, generating RSA keys of 1024 bits or using non standard elliptic curves below current security levels.
+- **Using insufficiently collision-resistant hash functions**: Selecting MD5 or SHA1, which have known collision attacks, can allow attackers to craft different messages with the same digest.
 
 ## Mitigations
 
