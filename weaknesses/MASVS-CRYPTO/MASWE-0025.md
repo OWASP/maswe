@@ -36,5 +36,6 @@ Using deprecated, risky, or broken hash or signature algorithms, such as MD5with
 
 ## Mitigations
 
-- **Choose a collision-resistant algorithm**: Choose a signature algorithm that is sufficiently collision-resistant, like RSA (3072 bits and higher), ECDSA with NIST P-384, or EdDSA with Edwards448.
-- **Choose a signing scheme that makes use of algorithms with sufficient bit-lengths**: As our computers get stronger, previously generated hashes get weaker. Therefore, make sure you can adjust the bit length (strength) of the algorithm you choose. When signatures are stored at rest, make sure to follow the software industry's long-term recommendations (e.g., ["NIST: Transition to Post-Quantum Cryptography Standards"](https://csrc.nist.gov/pubs/ir/8547/ipd)).
+- **Choose a modern, collision-resistant algorithm with sufficient bit-lengths**: Choose a signature algorithm with at least 128 bits of security. Suitable choices include RSA with 3072 bit keys, ECDSA with NIST P256 or P384, and EdDSA with Ed25519 or Edwards448.
+- **Design signatures with algorithm agility**: Adopt crypto agility-aware design as described in ["NIST.CSWP.39.2pd: Considerations for Achieving Crypto Agility"](https://nvlpubs.nist.gov/nistpubs/CSWP/NIST.CSWP.39.2pd.pdf?). For example, include metadata or version fields that allow migration to stronger algorithms as recommended in documents like [NIST SP 800-131A: Transitioning the Use of Cryptographic Algorithms and Key Lengths](https://csrc.nist.gov/pubs/sp/800/131/a/r2/final) and post quantum transition guidance (["NIST IR 8547: Transition to Post-Quantum Cryptography Standards"](https://csrc.nist.gov/pubs/ir/8547/ipd)).
+- **Do not rely on defaults**: Enforce minimum algorithm and key requirements **explicitly** in the code.
