@@ -26,7 +26,7 @@ Using deprecated, risky, or broken hash or signature algorithms, such as MD5with
 
 - **Loss of authenticity**: Signature forgery may allow an attacker to sign data on behalf of another entity, so the app can no longer trust where the data originated.
 - **Loss of integrity**: Signature forgery may allow an attacker to alter data while keeping the signature check passing, compromising its integrity.
-- **Loss of accountability**: Signature forgery allows for plausible deniability and diminishes accountability.
+- **Loss of accountability**: Signature forgery enables plausible deniability and weakens non repudiation when signatures are used as proof of approval or origin.
 
 ## Modes of Introduction
 
