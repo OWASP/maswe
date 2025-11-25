@@ -39,12 +39,13 @@ Hash-based KDFs such as HKDF are suitable only when the input secret already has
 ## Modes of Introduction
 
 - **Using a deprecated, risky, or broken hashing algorithm**: Examples include MD5 and SHA-1, which have practical collision attacks faster than the birthday bound.
-- **Using raw hash constructions where a MAC is required**: For example computing SHA-256(secret || data) or SHA-256(data || secret) instead of using HMAC, making the scheme vulnerable to length extension and structural attacks.
-- **Using non-resource-intensive algorithms on low-entropy input**: For example hashing passwords or PINs with a single SHA-256 call instead of using a proper password hashing function with salt and work factor.
-- **Using unsafe or overly short truncation of hashes**: For instance truncating a message digest to below recommended lengths reduces its security strength. [NIST SP 800-107 Rev 1](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-107r1.pdf) indicates: "The length of truncated message digests used shall be at least twice the desired security strength required for the digital signature".
+- **Using raw hash constructions where a MAC is required**: For example, computing SHA-256(secret || data) or SHA-256(data || secret) instead of using HMAC, making the scheme vulnerable to length extension and structural attacks.
+- **Using non-resource-intensive algorithms on low-entropy input**: For example, hashing passwords or PINs with a single SHA-256 call instead of using a proper password hashing function with salt and work factor.
+- **Using unsafe or overly short truncation of hashes**: For instance, truncating a message digest to below the recommended lengths reduces its security strength. [NIST SP 800-107 Rev 1](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-107r1.pdf) indicates: "The length of truncated message digests used shall be at least twice the desired security strength required for the digital signature".
 
 ## Mitigations
 
 - **Choose collision-resistant algorithm with sufficient bit-lengths**: Choose SHA-2 (256, 384, or 512 bits) or the SHA-3 family for integrity and fingerprinting purposes.
-- **Match the algorithm to the purpose**: Use password hashing functions for passwords and PINs. Use hash based KDFs only when the input secret already has high entropy. Do not treat general purpose hash functions as password hashing or key stretching mechanisms.
-- **Avoid truncating hashes too aggressively**: As stated in [NIST SP 800-107 Rev 1](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-107r1.pdf), ensure that when truncating digests the truncated length is at least twice the targeted security strength.
+- **Use HMAC instead of raw hash constructs to detect tampering**: To protect against data tampering, don't use raw hash constructs like SHA-256(secret || data) or SHA-256(data || secret); instead, use HMAC properly and transfer the secret confidentially beforehand to the recipient of the data.
+- **Match the algorithm to the purpose**: Use password hashing functions for passwords and PINs. Use hash-based KDFs only when the input secret already has high entropy. Do not treat general-purpose hash functions as password hashing or key stretching mechanisms.
+- **Avoid truncating hashes too aggressively**: As stated in [NIST SP 800-107 Rev 1](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-107r1.pdf), ensure that when truncating digests, the truncated length is at least twice the targeted security strength.
