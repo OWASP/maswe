@@ -36,6 +36,5 @@ iOS and Android automatically back up app data to cloud services, and users can 
 
 ## Mitigations
 
-- Exclude sensitive files from backups using platform-specific attributes, such as `android:allowBackup` or `BackupAgent` with `excludeFromBackup` for Android. On iOS, API such as `NSURLIsExcludedFromBackupKey` [doesn't guarantee](https://developer.apple.com/documentation/foundation/optimizing_your_app_s_data_for_icloud_backup/#3928527) exclusion from the backup. Therefore, you should encrypt your data instead.
-- Store sensitive data in locations excluded from backups by default, like the Keychain or `Library/Caches` on iOS.
-- Encrypt sensitive data before storage to ensure confidentiality, even if it gets backed up.
+- Exclude sensitive information, files, and key material from backups.
+- If you have to include sensitive data in backups, ensure it is encrypted with an algorithm strong enough to protect the data for its entire required lifetime, even if the backup is later compromised.
