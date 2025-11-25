@@ -34,7 +34,7 @@ status: placeholder
 ## Overview
 
 Improper use of a MAC, e.g., not using proper nonces or timestamps, may allow MAC forgeries, making it possible to compromise the authenticity and integrity of the data.
-Another common issue is using an HMAC with any type of general-purpose hashing algorithm (like MD5, SHA-1, SHA-2, or even SHA-3) on low-entropy input, such as user-supplied passwords, PINs, or other user-controlled predictors. HMACs are not designed for use with low-entropy inputs or low-entropy keys. Using HMACs in this way will result in "weak" message digests that can easily be exploited.
+Another common issue is using an HMAC with a general-purpose hashing algorithm on low-entropy input, such as user-supplied passwords, PINs, or other user-controlled inputs. HMACs are not designed for use with low-entropy inputs or low-entropy keys. Using HMACs in this way results in "weak" message digests that can be easily exploited.
 Deprecated or risky HMAC implementations like HMAC-MD5 or HMAC-SHA1 are vulnerable to collision attacks that would compromise the authenticity and integrity of the data. Collision attacks can also be made possible through truncating the HMAC digest. If truncating is necessary for interoperability, never truncate the digest below 128 bits and use the full HMAC whenever possible. Finally, never create checksums using non-cryptographically secure algorithms like CRC‑32, which are not meant for cryptographic purposes.
 
 ## Impact
