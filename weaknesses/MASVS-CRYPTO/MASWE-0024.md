@@ -52,7 +52,7 @@ Deprecated or risky HMAC implementations like HMAC-MD5 or HMAC-SHA1 are vulnerab
 - **Using a non-cryptographically secure algorithm**: Using CRC‑32, which is not meant to be used for cryptographic purposes.
 - **Truncating the HMAC digest too much**: Truncating the final HMAC digest makes it shorter than 128 bits.
 - **Not applying the MAC in the correct order**: When using CBC mode during encryption, e.g., incorrectly creating the MAC before encrypting the data instead of after, to ensure the authenticity and integrity of the encrypted data.
-- **Using raw hash constructions where a MAC is required**: For example, computing SHA-256(secret || data) or SHA-256(data || secret) instead of using HMAC, making the scheme vulnerable to length extension and structural attacks.
+- **Using raw hash constructs where a MAC is required**: For example, computing SHA-256(secret || data) or SHA-256(data || secret) instead of using HMAC, making the scheme vulnerable to length extension and structural attacks.
 
 ## Mitigations
 
