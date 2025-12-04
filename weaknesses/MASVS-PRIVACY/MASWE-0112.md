@@ -1,7 +1,7 @@
 ---
-title: Inadequate Data Collection Declarations
+title: Inadequate Data Handling Declarations
 id: MASWE-0112
-alias: data-collection-declarations
+alias: data-handling-declarations
 platform: ["android", "ios"]
 profiles: ["P"]
 mappings:
@@ -23,7 +23,7 @@ status: new
 
 ## Overview
 
-When a mobile app's stated data collection practices, such as those documented in Apple's [App Privacy Report](https://support.apple.com/en-us/102188) and [Privacy Nutrition Labels](https://support.apple.com/kb/HT211970), or Google's [Data Safety section](https://support.google.com/googleplay/android-developer/answer/10787469?hl=en), are incomplete or inconsistent with the app's actual behavior, users are prevented from making informed decisions about their privacy, including understanding whether data will be linked to their identity, used for tracking, or shared with third parties.
+When a mobile app's stated data handling practices, such as those documented in Apple's [App Privacy Report](https://support.apple.com/en-us/102188) and [Privacy Nutrition Labels](https://support.apple.com/kb/HT211970), or Google's [Data Safety section](https://support.google.com/googleplay/android-developer/answer/10787469?hl=en), are incomplete or inconsistent with the app's actual behavior, users are prevented from making informed decisions about their privacy, including understanding whether data will be collected, linked to their identity, used for tracking, or shared with third parties.
 
 These declarations must clearly outline what data is collected, how it is used, whether it is linked to the user's identity, and whether it is shared with third parties in accordance with the platform's policies.
 
