@@ -20,7 +20,7 @@ status: new
 
 ## Overview
 
-Content provider trust boundary weakness occurs when an app exposes or consumes data through `ContentProvider` and `ContentResolver` interfaces without enforcing trust boundaries, access restrictions, and input validation.
+Content provider boundary violation occurs when an app exposes or consumes data through `ContentProvider` and `ContentResolver` interfaces without enforcing trust boundaries, access restrictions, and input validation.
 
 Content providers are designed to share structured data between apps through content URIs, including metadata and file-backed resources. This model is powerful for interoperability, but it also creates an inter-process boundary where untrusted callers and untrusted providers can influence data access and file operations.
 
@@ -30,7 +30,7 @@ The weakness can appear in both provider implementations and client code. Provid
 
 - A provider is configured as exported, or with weak read/write permissions, when the data was intended only for internal app use.
 - Runtime validation of caller identity, URI patterns, or requested operations is omitted in provider methods, relying only on manifest declarations.
-- Data returned by external providers through `ContentResolver` APIs is treated as trusted without sanitization and canonicalization of columns, MIME types, or filenames.
+- Data returned by external providers through `ContentResolver` APIs is treated as trusted without sanitization or canonicalization of columns, MIME types, or filenames.
 - File descriptors are opened and local files are created from provider-supplied metadata without constraining paths and destinations to app-controlled locations.
 - Third-party SDKs or cross-platform plugins introduce provider components or provider-consuming flows with permissive defaults that bypass the app's intended sharing model.
 
