@@ -1,7 +1,7 @@
 ---
 title: Insecure Content Providers
 id: MASWE-0064
-alias: MASWE-0064
+alias: insecure-content-providers
 platform: [android]
 profiles: [L1, L2]
 mappings:
@@ -23,18 +23,16 @@ Content Providers are an Android Inter-Process Communication (IPC) mechanism tha
 
 The availability of insecure Content Providers occurs when an app exposes a Content Provider without adequate access restrictions, allowing other apps on the device to read, modify, or delete data they shouldn't have access to.
 
-
 A Content Provider that is exported without proper permission enforcement or that grants overly broad URI permissions can be queried or manipulated by any app on the device. File-based providers, such as `FileProvider`, present additional risk when misconfigured: they can expose files from the app's private directories to arbitrary callers.
 
 The severity depends on the type of data the provider exposes. Providers that serve authentication tokens, personal data, or internal files pose a higher risk than those that share non-sensitive, public content.
 
 ## Modes of Introduction
 
-- The app declares a Content Provider with `android:exported="true"` in the `AndroidManifest.xml` without setting a `android:permission`, `android:readPermission`, or `android:writePermission` attribute.
-- The app targets an API level below 17, where Content Providers are exported by default unless explicitly set to `android:exported="false"`.
+- **Exported Provider**: The app declares a Content Provider with `android:exported="true"` in the `AndroidManifest.xml` 
+- **Missing Authorization**: Setting the `android:permission`, `android:readPermission`, or `android:writePermission` attributes are missing, allowing any app on the device to read and write to the content provider.
 - A `FileProvider` is configured with overly broad path rules (e.g., sharing the root of internal storage via `<root-path>`) that expose files beyond what the app intends.
 - The app grants URI permissions with `FLAG_GRANT_READ_URI_PERMISSION` or `FLAG_GRANT_WRITE_URI_PERMISSION` in intents sent to untrusted components, allowing the receiver to access provider data without holding a permanent permission.
-- The app defines a custom permission with `android:protectionLevel="normal"` to guard the provider, which any app can request and obtain without user approval.
 
 ## Impact
 
