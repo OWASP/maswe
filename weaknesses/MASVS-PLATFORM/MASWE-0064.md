@@ -20,7 +20,7 @@ status: new
 
 ## Overview
 
-Insecure content provider usage occurs when an app exposes or consumes data through `ContentProvider` and `ContentResolver` interfaces without enforcing trust boundaries, access restrictions, and input validation.
+Content provider trust boundary weakness occurs when an app exposes or consumes data through `ContentProvider` and `ContentResolver` interfaces without enforcing trust boundaries, access restrictions, and input validation.
 
 Content providers are designed to share structured data between apps through content URIs, including metadata and file-backed resources. This model is powerful for interoperability, but it also creates an inter-process boundary where untrusted callers and untrusted providers can influence data access and file operations.
 
@@ -28,11 +28,11 @@ The weakness can appear in both provider implementations and client code. Provid
 
 ## Modes of Introduction
 
-- Developers configure a provider as exported, or with weak read/write permissions, when the data was intended only for internal app use.
-- Developers rely only on manifest declarations and omit runtime validation of caller identity, URI patterns, or requested operations in provider methods.
-- Developers consume data from external providers through `ContentResolver` APIs and trust returned columns, MIME types, or filenames without sanitization and canonicalization.
-- Developers open file descriptors or create local files based on provider-supplied metadata without constraining paths and destinations to app-controlled locations.
-- Third-party SDKs or cross-platform plugins add provider components or provider-consuming flows with permissive defaults that bypass the app's intended sharing model.
+- A provider is configured as exported, or with weak read/write permissions, when the data was intended only for internal app use.
+- Runtime validation of caller identity, URI patterns, or requested operations is omitted in provider methods, relying only on manifest declarations.
+- Data returned by external providers through `ContentResolver` APIs is treated as trusted without sanitization and canonicalization of columns, MIME types, or filenames.
+- File descriptors are opened and local files are created from provider-supplied metadata without constraining paths and destinations to app-controlled locations.
+- Third-party SDKs or cross-platform plugins introduce provider components or provider-consuming flows with permissive defaults that bypass the app's intended sharing model.
 
 ## Impact
 
