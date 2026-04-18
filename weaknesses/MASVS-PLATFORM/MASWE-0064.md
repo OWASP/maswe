@@ -20,7 +20,7 @@ status: new
 
 ## Overview
 
-This weakness occurs when an app exposes or consumes data through `ContentProvider` and `ContentResolver` interfaces without enforcing trust boundaries, access restrictions, and input validation.
+Insecure content provider usage occurs when an app exposes or consumes data through `ContentProvider` and `ContentResolver` interfaces without enforcing trust boundaries, access restrictions, and input validation.
 
 Content providers are designed to share structured data between apps through content URIs, including metadata and file-backed resources. This model is powerful for interoperability, but it also creates an inter-process boundary where untrusted callers and untrusted providers can influence data access and file operations.
 
