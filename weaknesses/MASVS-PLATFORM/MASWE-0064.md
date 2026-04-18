@@ -13,14 +13,14 @@ mappings:
   - https://developer.android.com/privacy-and-security/risks/untrustworthy-contentprovider-provided-filename
 refs:
 - https://developer.android.com/guide/topics/providers/content-provider-basics
-- https://developer.android.com/privacy-and-security/risks/content-resolver
-- https://developer.android.com/privacy-and-security/risks/untrustworthy-contentprovider-provided-filename
+- https://developer.android.com/reference/android/content/ContentProvider
+- https://developer.android.com/reference/android/content/ContentResolver
 status: new
 ---
 
 ## Overview
 
-Insecure content provider usage occurs when an app exposes or consumes data through `ContentProvider` and `ContentResolver` interfaces without enforcing trust boundaries, access restrictions, and input validation.
+This weakness occurs when an app exposes or consumes data through `ContentProvider` and `ContentResolver` interfaces without enforcing trust boundaries, access restrictions, and input validation.
 
 Content providers are designed to share structured data between apps through content URIs, including metadata and file-backed resources. This model is powerful for interoperability, but it also creates an inter-process boundary where untrusted callers and untrusted providers can influence data access and file operations.
 
