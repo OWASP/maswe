@@ -28,17 +28,17 @@ The weakness can appear in both provider implementations and client code. Provid
 
 ## Modes of Introduction
 
-- Developers export providers, or configure weak read/write permissions, when data was intended only for internal app use.
-- Developers omit runtime validation of caller identity, URI patterns, or requested operations in provider methods and rely only on manifest declarations.
+- Developers export providers or configure weak read/write permissions when data is intended only for internal app use.
+- Developers rely on manifest declarations alone and omit runtime validation of caller identity, URI patterns, and requested operations in provider methods.
 - Data returned by external providers through `ContentResolver` APIs is treated as trusted without sanitization or canonicalization of columns, MIME types, or filenames.
-- File descriptors are opened and local files are created from provider-supplied metadata without constraining paths and destinations to app-controlled locations.
+- Developers use provider-supplied metadata to open file descriptors or create local files without constraining paths and destinations to app-controlled locations.
 - Third-party SDKs or cross-platform plugins introduce provider components or provider-consuming flows with permissive defaults that bypass the app's intended sharing model.
 
 ## Impact
 
 - Unauthorized apps can read sensitive records or files exposed by a misconfigured provider.
 - Unauthorized apps can modify or delete shared data, causing integrity loss and business logic manipulation.
-- Malicious providers can supply crafted metadata or filenames that cause insecure file handling in the consuming app.
+- Malicious providers can supply crafted metadata or filenames that enable path traversal or arbitrary file write in the consuming app.
 - Attackers can trigger overwrite or placement of files in unintended app-accessible locations when path handling is not constrained.
 - Compromised provider trust boundaries can enable follow-on attacks such as privilege misuse, data exfiltration, or persistence of tampered content.
 
