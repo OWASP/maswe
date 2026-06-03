@@ -102,21 +102,25 @@ materially differs.
 
 ### `## Modes of Introduction`
 
-- How the weakness gets introduced into an app. Typical causes: unsafe defaults, missing configuration, unsafe API usage, copy-pasted code, outdated libraries, insufficient input. validation, misuse of platform features.
-- Prefer a short bulleted list (3-5 bullets), each bullet one or two sentences.
+- How the weakness gets introduced into an app. Typical causes: unsafe defaults, missing configuration, unsafe API usage, copy-pasted code, outdated libraries, insufficient input validation, misuse of platform features.
+- Prefer a short bulleted list (3-5 bullets).
+- Each bullet starts with a **bold short label** followed by a colon and then the explanation. For example:
+  `- **Hardcoded Keys**: Including cryptographic keys directly in the application code, making them susceptible to extraction through decompilation and reverse-engineering.`
 - Each bullet describes a developer-facing cause, not a consequence.
 - If the weakness can be introduced through a third-party SDK or cross-platform framework, call that out explicitly.
 
 ### `## Impact`
 
 - What an attacker can do, or what the user loses, if the weakness is present.
-- Short bulleted list (3-5 bullets). Each bullet is a concrete
-  outcome (e.g. "Loss of confidentiality of authentication tokens", "Account takeover via replayed credentials"), not a vague risk label.
+- Short bulleted list (3-5 bullets). Each bullet starts with a **bold short label** followed by a colon and then the concrete outcome. For example:
+  `- **Loss of Confidentiality**: Sensitive information can be exposed, resulting in a loss of confidentiality. Once keys are exposed, all data encrypted with those keys is at risk.`
+- Avoid vague risk labels. Each outcome should be specific and actionable.
 - No CVSS numbers. Severity is context-dependent and cannot be universally assigned to a weakness. Instead, the impact section should provide enough detail for testers and developers to make their own informed severity assessments based on the specific app context.
 
 ### `## Mitigations`
 
 - What developers must do to prevent or reduce the impact of the weakness.
-- Short bulleted list. Each bullet is an imperative sentence addressed to the developer in the second person ("Use ...", "Disable ...", "Enforce ...", "Avoid..."). This matches the MAS style guide.
+- Short bulleted list. Each bullet starts with a **bold short label** followed by a colon and then an imperative sentence addressed to the developer. For example:
+  `- **Use Platform Keystores**: Where possible, generate cryptographic keys dynamically on the device, rather than using predefined keys, and ensure that they are securely stored after creation.`
 - When a mitigation is fully captured by a MASTG-BEST entry, link to it with `@MASTG-BEST-XXXX` and keep the bullet short. Do not duplicate the content of the best practice.
 - Do not include testing steps here.
