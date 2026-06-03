@@ -48,5 +48,5 @@ The severity depends on the type of data the provider exposes. Providers that se
 - **Scope URI Permissions**: Grant URI permissions on a [per-URI basis](https://developer.android.com/training/permissions/restrict-interactions#uri) rather than to the entire provider. Use `FLAG_GRANT_READ_URI_PERMISSION` or `FLAG_GRANT_WRITE_URI_PERMISSION` for temporary, scoped access and revoke them with `revokeUriPermission()` as soon as they are no longer needed.
 - **Use a Strong Protection Level**: Declare the custom permission with the [`signature` protection level](https://developer.android.com/guide/topics/manifest/permission-element#plevel) to limit access to apps signed with the same certificate, or with `dangerous` to require explicit user consent.
 
-!!! `Signature Permission`
+!!! Warning "Signature Permission"
     Requiring `signature` for all exported providers might break legitimate cross-app data sharing; understand the intended purpose of the content provider before choosing a protection level.
