@@ -73,7 +73,7 @@ Field rules:
   - **mappings.masvs-v2**: One or more MASVS v2 controls this weakness helps verify. At least one entry is required.
   - **cwe**: One or more CWE IDs that correspond to this weakness. This helps link to the broader software security ecosystem.
   - **android-risks**: One or more specific risks from the Android developer documentation (https://developer.android.com/privacy-and-security/risks) that correspond to this weakness. This is an optional field that can help link to Android-specific guidance, but it should only be used when there is a clear match
-- **refs**: External references. Prefer stable, vendor-neutral sources (official platform docs, CWE, NIST, academic papers).
+- **refs**: External references. Prefer stable, vendor-neutral sources (official platform docs, NIST, academic papers).
 - **status**: When you generate a new MASWE draft, set
 `status: new`.
 

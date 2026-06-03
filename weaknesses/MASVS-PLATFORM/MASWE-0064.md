@@ -10,9 +10,9 @@ mappings:
   cwe: [926]
   android-risks:
     - https://developer.android.com/topic/security/risks/content-resolver
+    - - https://developer.android.com/topic/security/risks/file-providers
 refs:
   - https://developer.android.com/reference/androidx/core/content/FileProvider
-  - https://developer.android.com/topic/security/risks/file-providers
   - https://developer.android.com/privacy-and-security/security-tips#content-providers
 status: new
 ---
