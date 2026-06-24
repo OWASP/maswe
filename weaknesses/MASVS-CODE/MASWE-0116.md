@@ -1,5 +1,5 @@
 ---
-title: Compiler Provided Security Features Not Used
+title: Compiler-Provided Security Features Not Used
 id: MASWE-0116
 alias: compiler-provided-security-features-not-implemented
 platform: [android, ios]

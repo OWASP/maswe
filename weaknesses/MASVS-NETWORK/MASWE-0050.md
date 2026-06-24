@@ -16,6 +16,8 @@ refs:
 - https://developer.apple.com/documentation/bundleresources/information_property_list/nsapptransportsecurity/nsexceptiondomains
 - https://developer.apple.com/documentation/network
 - https://developer.apple.com/documentation/foundation/urlsession
+- https://developer.apple.com/forums/thread/67493
+- https://developer.apple.com/forums/thread/707320
 - https://developer.android.com/privacy-and-security/security-best-practices#secure-communication
 - https://developer.android.com/privacy-and-security/security-tips#networking
 - https://developer.android.com/privacy-and-security/security-config#CleartextTrafficPermitted
