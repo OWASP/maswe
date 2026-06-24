@@ -18,6 +18,10 @@ refs:
   - https://developer.android.com/reference/android/webkit/WebViewClient.html?sjid=15211564825735678155-EU#onReceivedSslError(android.webkit.WebView,%20android.webkit.SslErrorHandler,%20android.net.http.SslError)
   - https://developer.android.com/privacy-and-security/security-ssl#WarningsSslSocket
   - https://wiki.sei.cmu.edu/confluence/display/java/MSC00-J.+Use+SSLSocket+rather+than+Socket+for+secure+data+exchange
+  - https://developer.apple.com/forums/thread/67493
+  - https://developer.apple.com/forums/thread/707320
+  - https://support.apple.com/en-us/102390
+  - https://developer.apple.com/documentation/foundation/performing-manual-server-trust-authentication
 status: new
 ---
 
