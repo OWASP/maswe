@@ -1,7 +1,7 @@
 ---
-title: API Keys Hardcoded in the App Package
+title: Authenticators Hardcoded in the App Package
 id: MASWE-0005
-alias: api-keys-hardcoded-app-package
+alias: authenticators-hardcoded-app-package
 platform: [android, ios]
 profiles: [L1, L2]
 mappings:
@@ -14,34 +14,45 @@ status: new
 refs:
 - https://cloud.google.com/docs/authentication/api-keys#securing
 - https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions
+- https://www.youtube.com/watch?v=4enjKo2hQMY
+- https://bughunters.google.com/learn/invalid-reports/google-products/5222475159961600/understanding-api-key-leaks
+- https://firebase.google.com/support/guides/security-checklist#api-keys-not-secret
 ---
 
 ## Overview
 
-API keys hardcoded in the app package, source code, or compiled binaries, can be easily extracted through reverse engineering.
+Hardcoding authenticators—such as API keys, tokens, passwords, or private keys—into a mobile app package makes them trivially retrievable through static or dynamic analysis. When these authenticators provide access to protected resources, backend services, or user data, their exposure contradicts [NIST SP 800-63B](https://pages.nist.gov/800-63-3/sp800-63b.html) guidance, which requires authenticator secrets to be safeguarded against disclosure.
+
+However, not all keys found in an app are inherently sensitive. Many third-party services (e.g., Google Maps, Firebase, analytics providers) intentionally rely on **public client-side API keys** that act only as identifiers. These keys are expected to appear in mobile applications and are **not considered secrets**, provided they do not grant access to user data and are properly usage-restricted. For example, Firebase explicitly states that its client API keys "are not secret" and "are not used for authorization", and Google VRP does not accept reports of leaked `AIza` public API keys unless exploitability is demonstrated.
+
+This weakness therefore focuses on cases where the embedded authenticator **should have been kept secret**, or where a supposedly public key is **missing required usage restrictions** that prevent abuse.
 
 ## Impact
 
-Hardcoding API keys in the app can lead to a variety of security issues, including but not limited to:
+Hardcoding sensitive or misconfigured authenticators can result in:
 
-- **Financial Loss**: Attackers can exploit the compromised hardcoded API keys to make unauthorized API calls and abuse services that are billed on a per-use basis (e.g., AI or ML API services), resulting in unexpected charges to the app owner.
-- **Compromise of System Integrity and Business Operations**: Extracted API keys can give attackers unauthorized access to sensitive resources and services. This directly impacts developers and enterprises by compromising app integrity, privacy, and service continuity - potentially leading to disruptions such as Denial of Service (DoS) or service suspension due to policy violations. Such incidents can significantly impact the user experience, erode user trust, and negatively impact business reputation and operations.
-- **Bypass Protection Mechanism**: Hardcoded API keys can make it easier to bypass app protection mechanisms. Attackers can use this to access restricted content, cheat in app functionality, or unlock features that are intended for purchase, impacting both revenue and user experience.
+- **Financial Loss**: Keys tied to billable services (e.g., AI/ML APIs, cloud compute, SMS/email gateways) can be abused for unauthorized API consumption, leading to unexpected operational costs.
+- **Unauthorized Access to Data or Services**: Exposure of secret authenticators (e.g., Firebase FCM **server keys**, service account **private keys**, backend **API keys with write privileges**, OAuth **client secrets**, payment processor **secret keys**) may allow attackers to impersonate the app, access protected user data, or perform privileged operations.
+- **App Integrity and Business Operations Risks**: Attackers may leverage hardcoded secrets to perform actions that disrupt services (e.g., DoS through quota exhaustion or policy violations), manipulate backend content, or circumvent feature-gating, harming user trust and business reputation.
+- **Bypassing Protection Mechanisms**: Weakly protected or unprotected client-side keys may enable attackers to bypass feature restrictions, unlock premium features, or tamper with application logic.
 
 ## Modes of Introduction
 
-API keys can be hardcoded in several areas:
+Hardcoded authenticators may appear in:
 
-- **App Source Code**: directly embedded in the app source code.
-- **App Assets**: included in files that are destined for the final deliverable app package (typically APK/IPA), such as configuration files, manifest files, and resource files.
-- **Libraries**: configuration files or source code for third-party, first-party libraries or any other app dependencies.
+- **App Source Code**: directly embedded in code or configuration files.
+- **App Assets**: included in manifests, resource files, `google-services.json`, plist files, or other bundled assets.
+- **Libraries**: present in third-party SDKs, first-party modules, or included build-time dependencies.
 
 ## Mitigations
 
-- Use a stateful API service that provides secure authentication, client validation, and session controls. Implement dynamic tokens that expire after a reasonably short time (e.g., 1 hour). This can help reduce the impact of key exposure. Also, ensure proper error handling and logging to detect and respond to unauthorized access attempts. Consider using OAuth 2.0 and security libraries like AppAuth to simplify secure OAuth flows.
-- If a stateful API service is not viable, consider using a stateless API service with a middleware solution (sometimes known as API proxy or API Gateway). This involves proxying requests between the app and API endpoint. Use JSON Web Tokens (JWT) and JSON Web Signature (JWS) to store the vulnerable static key server-side rather than in the application (client). Implement secure key management practices and consider using a cloud key management service.
-- If API keys must be hardcoded, be sure to configure them with the minimum required permissions to reduce the impact in case of exposure. Many services allow you to create keys with restricted access, which limits the operations that can be performed.
-- Consider using a [Key Management Service](https://cloud.google.com/kms/docs/key-management-service) to get API keys on runtime after validating app integrity.
-- Regularly audit the codebase and dependencies for hardcoded sensitive data (e.g. using tools such as [gitLeaks](https://github.com/gitleaks/gitleaks)).
-- Use white-box cryptography techniques to encrypt API keys and sensitive data within the app, ensuring that the cryptographic algorithms and keys remain protected even if the app is reverse-engineered.
-- While not foolproof, and **to be used as a last resort** when no other secure options are available, code and resource obfuscation and encryption can deter attackers by making it more difficult to analyze your app and discover hardcoded secrets. Avoid custom implementations and use well-established solutions such as RASP (Runtime Application Self-Protection) which can ensure that the API keys are only fully assembled in memory when necessary, keeping them obfuscated or split across different components otherwise. RASP can also dynamically retrieve and manage keys securely at runtime by integrating with secure key management solutions.
+- Use a **stateful authentication model** (e.g., OAuth 2.0, short-lived tokens) so sensitive operations require server-issued, time-bound credentials rather than static client-side keys.
+- If a stateful model is not possible, use an **API gateway or proxy**. Keep sensitive keys server-side and expose only scoped, temporary tokens (e.g., JWTs or signed requests) to the client.
+- If an API key must reside in the client, ensure:
+    - It has **minimal permissions**.
+    - It is **restricted** by package name, SHA-1 signature, domain, IP, or allowed API list.
+    - It **cannot** grant access to user data.
+- Consider using a **Key Management Service (KMS)** to retrieve sensitive credentials at runtime only after verifying app integrity (e.g., device attestation or RASP signals).
+- Audit source code and dependencies for hardcoded secrets (e.g., with tools like `gitleaks` or CI secret scanners).
+- Apply **white-box cryptography** or **RASP** solutions when no stronger architectural alternative is possible, ensuring secrets are split, obfuscated, or constructed only in memory at runtime.
+- Use **code and resource obfuscation** as a last resort to increase the difficulty of reverse engineering, but never as a primary protection mechanism.
