@@ -5,13 +5,13 @@ alias: improper-signature-generation
 requirement: "The app properly generates cryptographic signatures."
 platform: [android, ios]
 profiles: [L1, L2]
-threat: MAS-THREAT-0010
-attacks: [MAS-ATTACK-0018, MAS-ATTACK-0021, MAS-ATTACK-0030]
+threat: MAS-THREAT-0118
+attacks: []
 mappings:
   masvs-v1: [MSTG-CRYPTO-4, MSTG-CRYPTO-5]
   masvs-v2: [MASVS-CRYPTO-1, MASVS-CRYPTO-2]
   cwe: [323, 326, 327, 330]
-  maswe-beta: [MASWE-0025, MASWE-0012]
+  maswe-beta: [MASWE-0121, MASWE-0012]
 refs:
 - https://developer.android.com/privacy-and-security/cryptography#deprecated-functionality
 - https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf
