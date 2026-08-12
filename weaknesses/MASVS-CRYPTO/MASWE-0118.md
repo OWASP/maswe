@@ -1,6 +1,6 @@
 ---
 title: Improper Generation of Cryptographic Signatures
-id: MASWE-0010
+id: MASWE-0118
 alias: improper-signature-generation
 requirement: "The app properly generates cryptographic signatures."
 platform: [android, ios]
@@ -13,21 +13,13 @@ mappings:
   cwe: [323, 326, 327, 330]
   maswe-beta: [MASWE-0025, MASWE-0012]
 refs:
-<<<<<<< HEAD
-- https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf
-status: new
-
-=======
 - https://developer.android.com/privacy-and-security/cryptography#deprecated-functionality
 - https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf
 - https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf
 - https://csrc.nist.gov/pubs/ir/8547/ipd
->>>>>>> main
----
 
 ## Overview
 
-<<<<<<< HEAD
 Improper Key derivation functions will generate a key using a scheme or iteration count that does not provide a sufficient level of computational effort. This can open up the possibility for brute force password/secret cracking or dictionary attacks.
 In cases where a user-supplied password or pin is used without a sufficiently random salt the resulting output will be identical or similar enough to allow an attacker to execute a brute force attack to find the original password/pin using the KDF (key derivation function) as an "oracle".
 A similar issue happens when the salt is user-supplied or left out. Consider a mobile app that generates user keys from a master key on demand during installation. Let's say that a key used in the mobile app is derived from this master key using the username or other user supplied value as salt. Such an implementation can make it possible for an attacker to retrieve the derived key by using the username or supplied user value as input.
@@ -83,4 +75,3 @@ Signatures are only as strong as the scheme and parameters behind them: deprecat
 - **Use Sufficient Key Lengths**: Ensure signing keys meet or exceed the lengths recommended by [NIST.SP.800-131Ar2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf) for the chosen algorithm.
 - **Ensure Nonce Uniqueness**: Generate (EC)DSA per-signature nonces with a cryptographically secure random number generator, or use deterministic schemes (e.g. RFC 6979 deterministic ECDSA or Ed25519) that eliminate nonce misuse.
 - **Use Signing Keys for a Single Purpose**: Keep signing keys dedicated to signing and generate separate keys for other operations.
->>>>>>> main
