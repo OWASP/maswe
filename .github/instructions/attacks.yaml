@@ -1,0 +1,90 @@
+MAS-ATTACK-0001: Obtaining the app package and reverse engineering it.
+MAS-ATTACK-0002: Debugging the app at runtime.
+MAS-ATTACK-0003: Using dynamic instrumentation.
+MAS-ATTACK-0004: Attaching a remote inspector to the app's debuggable web content.
+MAS-ATTACK-0005: Accessing the device storage on a compromised device.
+MAS-ATTACK-0006: Accessing the system logs on a compromised device or from an app holding log-access permissions.
+MAS-ATTACK-0007: Accessing files exposed through incorrect file permissions or misconfigured content providers.
+MAS-ATTACK-0008: Extracting local or cloud backups of the device.
+MAS-ATTACK-0009: Tampering with backup contents and restoring the modified backup to a device.
+MAS-ATTACK-0010: Accessing shared or external storage from any app holding the corresponding permissions.
+MAS-ATTACK-0011: Physically removing and reading external storage media such as SD cards.
+MAS-ATTACK-0012: Monitoring network traffic on the same network (e.g., public Wi-Fi or a compromised router).
+MAS-ATTACK-0013: Monitoring local or proximity interfaces such as Bluetooth, NFC, or USB.
+MAS-ATTACK-0014: Performing a Machine-in-the-Middle (MITM) attack, e.g., via ARP poisoning, DNS spoofing, or a rogue access point.
+MAS-ATTACK-0015: Presenting a fraudulent or otherwise invalid certificate that the app accepts.
+MAS-ATTACK-0016: Obtaining a valid certificate for the target domain from a compromised, coerced, or rogue Certificate Authority (CA).
+MAS-ATTACK-0017: Installing an attacker-controlled CA certificate on a device they control to inspect the app's traffic.
+MAS-ATTACK-0018: Brute-forcing cryptographic material generated with insufficient length.
+MAS-ATTACK-0019: Recovering or guessing the seed used by the generator to reproduce its output.
+MAS-ATTACK-0020: Intercepting cryptographic keys exported in plaintext.
+MAS-ATTACK-0021: Performing cryptanalysis of broken algorithms, modes, or parameters.
+MAS-ATTACK-0022: Exploiting predictable or reused IVs or nonces to detect patterns or recover plaintext.
+MAS-ATTACK-0023: Exploiting padding oracles exposed through observable error signals or timing differences.
+MAS-ATTACK-0024: Observing enough outputs to recover the internal state of a non-cryptographic PRNG.
+MAS-ATTACK-0025: Performing offline brute-force or dictionary attacks against keys derived from low-entropy inputs.
+MAS-ATTACK-0026: Precomputing derived keys when salts are missing, hardcoded, or reused.
+MAS-ATTACK-0027: Invoking keystore operations on a compromised or stolen device when key use does not require user authentication.
+MAS-ATTACK-0028: Crafting collisions or second preimages for broken hash functions.
+MAS-ATTACK-0029: Replaying previously captured valid messages or tags.
+MAS-ATTACK-0030: Recovering private keys from predictable or reused signature nonces.
+MAS-ATTACK-0031: Presenting data with invalid, stripped, or attacker-signed signatures that the app accepts.
+MAS-ATTACK-0032: Using a victim's device with an active session (e.g., an unlocked or stolen device).
+MAS-ATTACK-0033: Reusing stolen session tokens obtained through other attacks.
+MAS-ATTACK-0034: Using a known, guessed, or shoulder-surfed device credential (PIN, pattern, or password).
+MAS-ATTACK-0035: Enrolling additional biometrics on the device after obtaining the device credential.
+MAS-ATTACK-0036: Displaying overlays or tampering with the UI to alter what the user sees while approving an action.
+MAS-ATTACK-0037: Manipulating a compromised OS to alter or fabricate the confirmation flow.
+MAS-ATTACK-0038: Invoking exported or unprotected app components from another app installed on the device.
+MAS-ATTACK-0039: Connecting to open ports or local services exposed by the app.
+MAS-ATTACK-0040: Patching or repackaging the app to remove or alter client-side checks.
+MAS-ATTACK-0041: Reading sensitive data from the clipboard when users copy it between apps.
+MAS-ATTACK-0042: Phishing credentials through lookalike apps or pages when users must type them manually.
+MAS-ATTACK-0043: Observing the device screen while sensitive data is displayed or entered (shoulder surfing).
+MAS-ATTACK-0044: Reading notification content shown on the lock screen without unlocking the device.
+MAS-ATTACK-0045: Reading notification content from another app holding notification-access permissions.
+MAS-ATTACK-0046: Registering the same custom URL scheme to intercept links intended for the app.
+MAS-ATTACK-0047: Delivering crafted deep links or intents from a malicious app or web page.
+MAS-ATTACK-0048: Capturing user input through a malicious custom keyboard or app extension.
+MAS-ATTACK-0049: Registering intent filters to intercept implicit intents sent by the app.
+MAS-ATTACK-0050: Modifying or replaying mutable PendingIntents obtained from the app.
+MAS-ATTACK-0051: Injecting malicious JavaScript into WebView content (e.g., via MITM on insecure connections or a compromised website).
+MAS-ATTACK-0052: Harvesting on-screen content through a malicious accessibility service the user was tricked into enabling.
+MAS-ATTACK-0053: Targeting users who remain on an app version with publicly known vulnerabilities.
+MAS-ATTACK-0054: Installing a malicious app on a device running an OS version affected by unpatched platform vulnerabilities.
+MAS-ATTACK-0055: Running the app on a device whose OS version lacks the platform protections the app relies on.
+MAS-ATTACK-0056: Accessing app data exposed by legacy compatibility behaviors that the platform still applies to apps targeting an old version.
+MAS-ATTACK-0057: Substituting or modifying code that the app loads at runtime from writable or unverified locations.
+MAS-ATTACK-0058: Identifying deprecated components in the app package and using publicly documented attacks against them.
+MAS-ATTACK-0059: Supplying crafted input through any external interface (network, IPC, files, UI, or peripherals).
+MAS-ATTACK-0060: Compromising a dependency, SDK, or build tool in the app's supply chain.
+MAS-ATTACK-0061: Introducing malicious code through an insider or compromised developer account.
+MAS-ATTACK-0062: Distributing tampered builds that cannot be distinguished from legitimate ones.
+MAS-ATTACK-0063: Accessing a lost or stolen device that has no secure lock screen configured.
+MAS-ATTACK-0064: Inspecting or modifying app traffic on a device they control after bypassing transport protections (e.g., pinning).
+MAS-ATTACK-0065: Running the app on a rooted or jailbroken device they control.
+MAS-ATTACK-0066: Running the app in an emulator or virtual device.
+MAS-ATTACK-0067: Running the app inside an app-virtualization or cloning framework.
+MAS-ATTACK-0068: Impersonating the app with scripts, bots, or tampered clients when interacting with the backend.
+MAS-ATTACK-0069: Installing a repackaged version of the app on victim devices.
+MAS-ATTACK-0070: Modifying the app's files or resources on a compromised device.
+MAS-ATTACK-0071: Capturing or recording the screen from another app or an external tool.
+MAS-ATTACK-0072: Accessing screenshots automatically taken by the system, e.g., when the app moves to the background.
+MAS-ATTACK-0073: Identifying vulnerable dependency versions in the app package and using public advisories or exploits.
+MAS-ATTACK-0074: Collecting and correlating identifiers and usage data across apps, devices, and services.
+MAS-ATTACK-0075: Contacting undeclared tracking domains that platform enforcement cannot block.
+MAS-ATTACK-0076: Handling credentials and browsing state inside the app instead of isolated system flows.
+MAS-ATTACK-0077: Collecting non-resettable identifiers or misusing resettable ones.
+MAS-ATTACK-0078: Linking directly identifiable data to real-world identities.
+MAS-ATTACK-0079: Operating without a privacy policy or under a vague, generic, or inaccessible one.
+MAS-ATTACK-0080: Deviating from the practices stated in the published privacy policy.
+MAS-ATTACK-0081: Collecting or sharing data categories that are not declared in the platform's privacy labels.
+MAS-ATTACK-0082: Transmitting undeclared identifiers or analytics data to first- or third-party services over the network.
+MAS-ATTACK-0083: Providing no way for users to delete, export, modify, or opt out of the collection of their data.
+MAS-ATTACK-0084: Making profile details, activity status, or discoverability visible to other users or third parties by default.
+MAS-ATTACK-0085: Collecting data under consent that is bundled, implied, or otherwise not freely and specifically given.
+MAS-ATTACK-0086: Continuing to collect data under an outdated consent after practices have changed.
+MAS-ATTACK-0087: Exporting or sharing data through flows whose privacy consequences are not evident to the user.
+MAS-ATTACK-0088: Holding excessive or no-longer-needed permissions granted to the app.
+MAS-ATTACK-0089: Using permissions granted to the host app to call protected APIs and collect data from a third-party SDK.
+MAS-ATTACK-0090: Forging a MAC or tag by exploiting non-constant-time verification or distinguishable error responses.  
