@@ -9,9 +9,21 @@ The MASWE project includes specific requirements and formatting guidelines. Use 
 The following writing guidelines are available.
 
 | File | Applies to | Purpose |
-|------|-----------|---------|
+| ---- | ---------- | ------- |
 | [markdown.instructions.md](markdown.instructions.md) | `**/*.md` | Shared writing style, cross-references, and LLM disclosure policy |
 | [maswe.instructions.md](maswe.instructions.md) | `weaknesses/**/*.md` | MASWE weakness file structure, front matter, sections, and template |
+
+## Shared Vocabularies
+
+MASWE files reference these controlled vocabularies instead of restating their content.
+
+| File | Referenced from | Purpose |
+| ---- | --------------- | ------- |
+| [threats.yaml](threats.yaml) | `threat:` front matter | `MAS-THREAT-XXXX` outcomes attackers can achieve |
+| [attacks.yaml](attacks.yaml) | `attacks:` front matter | `MAS-ATTACK-XXXX` paths through which a threat is realized |
+| [impact.yaml](impact.yaml) | `## Impact` bullets | Canonical consequence labels (no IDs) |
+
+Entries in `threats.yaml` and `attacks.yaml` are append-only. Never reuse or renumber an existing ID.
 
 ## Before You Start
 
