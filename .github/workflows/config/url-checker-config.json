@@ -8,7 +8,7 @@
         },
         {
             "comment": "Sites that are live but block automated clients (bot challenge, consent-redirect loop or rate limiting)",
-            "pattern": "^https://(www\\.)?(statista\\.com|researchgate\\.net|ieeexplore\\.ieee\\.org)"
+            "pattern": "^https?://(www\\.)?(statista\\.com|researchgate\\.net|ieeexplore\\.ieee\\.org|creativecommons\\.org)"
         },
         {
             "pattern": "^https://support\\.google\\.com/"
