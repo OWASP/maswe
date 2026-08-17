@@ -5,6 +5,7 @@
 [![OWASP Flagship](https://img.shields.io/badge/owasp-flagship%20project-48A646.svg)](https://owasp.org/projects/)
 [![Creative Commons License](https://img.shields.io/github/license/OWASP/maswe)](https://creativecommons.org/licenses/by-sa/4.0/ "CC BY-SA 4.0")
 
+[![MASWE Build](https://github.com/OWASP/maswe/workflows/MASWE%20Build/badge.svg)](https://github.com/OWASP/maswe/actions/workflows/docgenerator.yml)
 [![Markdown Linter](https://github.com/OWASP/maswe/workflows/Markdown%20Linter/badge.svg)](https://github.com/OWASP/maswe/actions/workflows/markdown-linter.yml)
 [![URL Checker](https://github.com/OWASP/maswe/workflows/URL%20Checker/badge.svg)](https://github.com/OWASP/maswe/actions/workflows/url-checker.yml)
 

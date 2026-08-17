@@ -1,0 +1,51 @@
+name: MASWE Build
+
+on: [push, workflow_dispatch]
+
+jobs:
+  Generate-MASWE-Documents:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+
+    - name: Set MASWE_VERSION to env
+      run: echo "MASWE_VERSION=$(curl -s https://api.github.com/repos/OWASP/maswe/tags | jq '.[0].name' | sed 's/\"//g')" >> $GITHUB_ENV
+
+    - name: Set DEV MASWE_VERSION if it's not a tag
+      if: ${{ !startsWith(github.ref, 'refs/tags/') }}
+      run: echo "MASWE_VERSION=${{env.MASWE_VERSION}}-$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+
+    - name: Install dependencies
+      run: pip install pyyaml
+
+    - name: Generate MASWE yaml
+      run: python3 ./tools/generate_maswe_yaml.py -v ${{ env.MASWE_VERSION }}
+
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: OWASP_MASWE
+        path: OWASP_MASWE*
+
+  release:
+    runs-on: ubuntu-latest
+    needs: [Generate-MASWE-Documents]
+    if: startsWith(github.ref, 'refs/tags/') && (github.actor == 'cpholguera' || github.actor == 'sushi2k')
+    steps:
+      - uses: actions/download-artifact@v4
+      - name: Move all files to the root folder
+        run: mv OWASP_MASWE*/* .
+
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          prerelease: false
+          draft: true
+          generate_release_notes: true
+          discussion_category_name: Announcements
+          files: |
+            OWASP_MASWE.yaml
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
