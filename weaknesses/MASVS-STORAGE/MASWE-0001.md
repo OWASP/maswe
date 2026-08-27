@@ -1,6 +1,7 @@
 ---
 title: Sensitive Data Stored Unencrypted in Private Storage
 id: MASWE-0001
+cves: [CVE-2022-39349, CVE-2023-33188, CVE-2018-19981, CVE-2026-47362, CVE-2024-12094]
 alias: data-unencrypted-private-storage
 requirement: "The app encrypts sensitive data stored in private storage."
 platform: [android, ios]
@@ -39,12 +40,12 @@ Sensitive data may include personally identifiable information (PII), passwords,
 
 ## Example Attack Scenario
 
-In CVE-2022-39349, the Tasks.org Android app could be induced to copy files containing sensitive data from private storage into an external-storage directory accessible to other apps with storage permission.
+In CVE-2022-39349, a vulnerable Android app could be induced to copy unencrypted sensitive data from internal storage into external storage accessible to other apps with storage permission.
 
-1. An attacker-controlled Android app installed on the same device sends Tasks.org a crafted share intent that references Tasks.org's private database.
-2. Tasks.org accepts the supplied path and copies its private database into an attachments directory located in external storage.
+1. An attacker-controlled app installed on the same device sends the vulnerable app a crafted share intent that references the vulnerable app's private database.
+2. The vulnerable app accepts the supplied path and copies its private database into an attachments directory located in external storage.
 3. Because the database isn't encrypted, the attacker-controlled app reads the copied data using its external storage permission.
-4. The attacker gains access to sensitive information from the user's notes and app preferences.
+4. The attacker gains access to sensitive information from the user's notes.
 
 ## Impact
 
