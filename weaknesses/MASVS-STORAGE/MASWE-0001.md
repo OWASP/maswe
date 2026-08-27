@@ -6,7 +6,7 @@ requirement: "The app encrypts sensitive data stored in private storage."
 platform: [android, ios]
 profiles: [L2]
 threat: MAS-THREAT-0001
-attacks: [MAS-ATTACK-0005, MAS-ATTACK-0007, MAS-ATTACK-0008]
+attacks: [MAS-ATTACK-0005, MAS-ATTACK-0007, MAS-ATTACK-0008, MAS-ATTACK-0038]
 mappings:
   masvs-v1: [MSTG-STORAGE-2]
   masvs-v2: [MASVS-STORAGE-1, MASVS-STORAGE-2, MASVS-CRYPTO-2]
@@ -18,6 +18,8 @@ refs:
 - https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/encrypting_your_app_s_files
 - https://developer.android.com/about/versions/nougat/android-7.0-changes#permfilesys
 - https://developer.android.com/privacy-and-security/security-tips#internal-storage
+- https://github.com/tasks/tasks/security/advisories/GHSA-8x58-cg74-8jg8
+- https://securitylab.github.com/advisories/GHSL-2022-062_Tasks_org/
 ---
 
 ## Overview
@@ -34,6 +36,15 @@ Sensitive data may include personally identifiable information (PII), passwords,
 - **Insufficient Encryption**: Encrypting sensitive data with an algorithm or configuration that is not considered strong.
 - **Insufficient Access Restrictions**: Exposing private files to other apps through incorrect file permissions (e.g. the deprecated `MODE_WORLD_READABLE`/`MODE_WORLD_WRITEABLE` file permission modes on Android), a misconfigured `FileProvider`, or Keychain items protected with weak accessibility attributes on iOS (e.g. `kSecAttrAccessibleAlways`).
 - **Data Not Removed After Use**: Retaining sensitive data in private storage (including caches, temporary files, WebView state, and network caches) longer than needed.
+
+## Example Attack Scenario
+
+In CVE-2022-39349, the Tasks.org Android app could be induced to copy files containing sensitive data from private storage into an external-storage directory accessible to other apps with storage permission.
+
+1. An attacker-controlled Android app installed on the same device sends Tasks.org a crafted share intent that references Tasks.org's private database.
+2. Tasks.org accepts the supplied path and copies its private database into an attachments directory located in external storage.
+3. Because the database isn't encrypted, the attacker-controlled app reads the copied data using its external storage permission.
+4. The attacker gains access to sensitive information from the user's notes and app preferences.
 
 ## Impact
 
