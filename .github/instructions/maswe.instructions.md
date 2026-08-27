@@ -128,12 +128,12 @@ For example:
 
 - Illustrate one realistic way in which an actor could exploit the weakness in a mobile application. The scenario makes the weakness practical.
 - Do not attempt to cover every possible attack path. Describe one representative scenario.
-- Start with one or two sentences that identify the type of vulnerable app or component, the protected asset or operation, and the vulnerable design.
-- Follow with a short numbered list, normally three to five steps, covering this cause-and-effect chain:
+- Start with one or two sentences that identify the type of vulnerable app or component, the protected asset or operation, and the vulnerable design. Summarize the case without duplicating details explained in the numbered steps.
+- Follow with a short numbered list, normally three to five steps. Use fewer steps when that produces a clearer scenario; do not split one event into separate steps merely to match the pattern. Cover this cause-and-effect chain:
     1. State the actor's capability or precondition and how the attack begins.
     2. Describe the vulnerable behavior performed by the app or component.
     3. Explain how the missing security property gives the actor access or control.
-    4. Name the specific data, operation, or functionality exposed to the actor.
+    4. Name the specific data, operation, or functionality exposed to the attacker and the resulting security outcome.
 - Ensure the scenario is consistent with at least one `attacks:` entry and the `threat:` entry in the front matter. If no existing attack or threat describes the scenario, propose a new reusable entry in `.github/instructions/attacks.yaml` or `.github/instructions/threats.yaml` by following the rules in [Writing threats and attacks](#writing-threats-and-attacks).
 - State important attacker prerequisites explicitly, such as physical access, a rooted or jailbroken device, a malicious app installed on the device, access to a backup, or control over the app's execution environment. Do not imply that an application sandbox, cryptographic primitive, or platform security control is universally bypassable when exploitation depends on an additional condition.
 - Prefer a platform-agnostic scenario. If the weakness or exploitation mechanism is platform-specific, use the platform named in the front matter and avoid presenting that behavior as applicable to other platforms.
@@ -143,8 +143,9 @@ For example:
 - Verify that the cited case actually demonstrates the MASWE weakness and supports every material claim in the scenario. Do not infer undocumented exploitation steps, attacker capabilities, or impact, and do not include details that remain confidential or were disclosed without authorization.
 - If no suitable public case exists, use a realistic fictional scenario and clearly introduce it as hypothetical, for example with "Suppose a healthcare app..." Include only the details needed to explain the weakness.
 - Keep the scenario concise, normally 80-150 words. Every step must advance the attack. Avoid introductory filler, sensational claims, and outcomes that are not supported by the described chain.
-- Use plain, direct language. Distinguish the attacker-controlled app from the vulnerable app, and name the asset and storage location or interface precisely. Repeat "the vulnerable app" or "the attacker-controlled app" when a pronoun could refer to either one.
-- Keep each numbered step focused on one part of the attack. Omit implementation details that do not help explain why the weakness is exploitable.
+- Use plain, direct language. For attacker-driven weaknesses, prefer "attacker" to the more abstract "actor." Distinguish the attacker-controlled app from the vulnerable app, and name the asset and storage location or interface precisely. Repeat "the vulnerable app" or "the attacker-controlled app" when a pronoun could refer to either one.
+- Describe changes in trust or access boundaries concretely, including what becomes exposed, who can access it, and which capability, permission, or prerequisite enables that access. Avoid vague comparisons such as "less secure," "more accessible," or "more exploitable" without explaining the changed boundary.
+- Keep each numbered step focused on one distinct part of the attack. Avoid repeating the same fact in the opening and the steps or in consecutive steps. Omit implementation details that do not help explain why the weakness is exploitable.
 - Do not include commands, tool names, code, payloads, detailed testing instructions, or MASTG cross-references. Those belong in MASTG tests, techniques, and demos.
 - Do not turn the scenario into mitigation guidance. Remediation belongs in `## Mitigations`.
 
@@ -155,10 +156,10 @@ Use this general pattern, adapting the wording to the weakness instead of copyin
 
 In <publicly documented case or CVE>, <the vulnerable app or component> exposed <asset or operation> through <the security failure represented by this MASWE>.
 
-1. The actor <meets the prerequisite and initiates the attack>.
+1. The attacker <meets the prerequisite and initiates the attack>.
 2. The vulnerable app or component <performs the vulnerable behavior>.
-3. Because <the required security property is missing>, the actor <gains access or control>.
-4. The actor <accesses specific data or functionality>.
+3. Because <the required security property is missing>, the attacker <gains access or control>.
+4. The attacker <accesses specific data or functionality, producing a specific security outcome>.
 ```
 
 The scenario must explain the weakness, not teach the reader how to perform a test.
