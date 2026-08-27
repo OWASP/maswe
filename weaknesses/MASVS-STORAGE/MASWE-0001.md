@@ -40,7 +40,7 @@ Sensitive data may include personally identifiable information (PII), passwords,
 
 ## Example Attack Scenario
 
-In CVE-2022-39349, a vulnerable Android app could be induced to copy unencrypted sensitive data from internal storage into external storage accessible to other apps with storage permission.
+In CVE-2022-39349, a vulnerable Android app could be induced to copy unencrypted sensitive data from internal storage into more broadly accessible external storage.
 
 1. An attacker-controlled app installed on the same device sends the vulnerable app a crafted share intent that references the vulnerable app's private database.
 2. The vulnerable app accepts the supplied path and copies its private database into an attachments directory located in external storage.

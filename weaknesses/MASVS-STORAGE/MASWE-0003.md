@@ -39,7 +39,7 @@ Cryptographic keys are essential for securing sensitive data in mobile applicati
 
 ## Example Attack Scenario
 
-In CVE-2021-24027, a vulnerable Android messaging app cached TLS 1.2 master key material in an app-specific directory located in external storage, where another app with external storage access could read it.
+In CVE-2021-24027, a vulnerable Android messaging app cached TLS 1.2 master key material in external storage.
 
 1. An attacker-controlled app installed on the same device has permission to read external storage.
 2. The vulnerable app writes the TLS 1.2 master key material into its external cache directory.
