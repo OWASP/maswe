@@ -1,6 +1,7 @@
 ---
 title: Sensitive Data Stored Unencrypted Outside of Private Storage
 id: MASWE-0002
+cves: [CVE-2022-39043, CVE-2025-6748, CVE-2025-55443, CVE-2025-41458, CVE-2023-41387]
 alias: data-unencrypted-shared-storage-no-user-interaction
 requirement: "The app encrypts sensitive data stored outside of private storage."
 platform: [android, ios]
@@ -35,6 +36,15 @@ This weakness primarily concerns Android, which permits the explicit use of shar
 - **Encryption Key Stored on Filesystem**: Encrypting sensitive data stored in external storage but storing the key alongside it or in another easily accessible location.
 - **Insufficient Encryption**: Encrypting sensitive data with an algorithm or configuration that is not considered strong.
 - **Reuse of Encryption Key**: Sharing the encryption key between two devices owned by a single user, enabling data cloning between those devices via external storage.
+
+## Example Attack Scenario
+
+In CVE-2025-6748, a vulnerable Android app exposed account and payment information by storing it unencrypted in external storage.
+
+1. An attacker-controlled app installed on the same device has access to external storage.
+2. The vulnerable app stores the user's phone number, email address, transaction identifiers, and payment history there in unencrypted files.
+3. Because the files are unencrypted, the attacker-controlled app reads the account and payment information directly.
+4. The attacker gains access to the user's identity and financial activity.
 
 ## Impact
 

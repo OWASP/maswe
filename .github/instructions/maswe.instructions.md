@@ -40,12 +40,13 @@ Keep the MASWE general. Platform specifics are used in the MASTG content.
 
 Every MASWE file begins with a YAML front matter block. 
 
-Required fields:
+Use the following front matter structure. Omit `cves` when the weakness does not include a documented CVE case.
 
 ```yaml
 ---
 title: <Short, specific weakness name>
 id: MASWE-XXXX
+cves: [CVE-YYYY-NNNN]
 alias: <shortened alias of the title, in lowercase with dashes instead of spaces>
 requirement: "<One-sentence positive requirement the app must fulfill>"
 platform: [android, ios]
@@ -70,6 +71,7 @@ YAML style: do not quote list items unless required (`[android, ios]`, not `["an
 Field rules:
 
 - **title**: Noun phrase naming the weakness, not a sentence. No trailing period. Use title case. Avoid vendor names unless they are part of the standardized term (e.g. "Android KeyStore").
+- **cves**: Optional list of CVE IDs for the documented real-world cases used in the weakness. Place it immediately after `id`, use the canonical `CVE-YYYY-NNNN` format, and list multiple IDs in ascending order.
 - **alias**: Short, lowercase, dash-separated version of the title. This is used for cross-referencing the weakness in MASTG content. It should be unique across all weaknesses. Examples: `weak-crypto-key-derivation`, `no-key-rotation`.
 - **requirement**: A single sentence, in quotes, stating the positive security requirement that the app must fulfill (the inverse of the weakness). Example: `"The app encrypts all network traffic."`
 - **platform**: List of affected platforms. Use `[android, ios]` if the weakness applies to both. Use a single-item list if it is platform-specific (e.g. `[android]` for StrandHogg).
@@ -94,8 +96,9 @@ Use exactly these top-level section headings, in this order, all at `##` level. 
 
 1. `## Overview`
 2. `## Modes of Introduction`
-3. `## Impact`
-4. `## Mitigations`
+3. `## Example Attack Scenario`
+4. `## Impact`
+5. `## Mitigations`
 
 ### `## Overview`
 
@@ -120,6 +123,46 @@ For example:
 
 - `**Hardcoded Keys**: Including cryptographic keys directly in the application code, making them susceptible to extraction through decompilation and reverse-engineering.`
     - This should not contain the consequences (e.g. "making them susceptible to extraction through decompilation and reverse-engineering") — that belongs in the Impact section. Instead, it should describe how the weakness is introduced (e.g. "Including cryptographic keys directly in the application code").
+
+### `## Example Attack Scenario`
+
+- Illustrate one realistic way in which an actor could exploit the weakness in a mobile application. The scenario makes the weakness practical.
+- Do not attempt to cover every possible attack path. Describe one representative scenario.
+- Start with one or two sentences that identify the type of vulnerable app or component, the protected asset or operation, and the vulnerable design. Summarize the case without duplicating details explained in the numbered steps.
+- Follow with a short numbered list, normally three to five steps. Use fewer steps when that produces a clearer scenario; do not split one event into separate steps merely to match the pattern. Cover this cause-and-effect chain:
+    1. State the actor's capability or precondition and how the attack begins.
+    2. Describe the vulnerable behavior performed by the app or component.
+    3. Explain how the missing security property gives the actor access or control.
+    4. Name the specific data, operation, or functionality exposed to the attacker and the resulting security outcome.
+- Ensure the scenario is consistent with at least one `attacks:` entry and the `threat:` entry in the front matter. If no existing attack or threat describes the scenario, propose a new reusable entry in `.github/instructions/attacks.yaml` or `.github/instructions/threats.yaml` by following the rules in [Writing threats and attacks](#writing-threats-and-attacks).
+- State important attacker prerequisites explicitly, such as physical access, a rooted or jailbroken device, a malicious app installed on the device, access to a backup, or control over the app's execution environment. Do not imply that an application sandbox, cryptographic primitive, or platform security control is universally bypassable when exploitation depends on an additional condition.
+- Prefer a platform-agnostic scenario. If the weakness or exploitation mechanism is platform-specific, use the platform named in the front matter and avoid presenting that behavior as applicable to other platforms.
+- Prefer a documented real-world case that clearly demonstrates the weakness and identify it by its CVE ID when available. Do not name the affected app, vendor, or product in the scenario. Refer to it as "the vulnerable app" or "the vulnerable component" instead. Record the CVE ID in the front matter `cves:` list and add authoritative public evidence, such as a vendor advisory, CVE record, published security research report, or publicly disclosed bug bounty report, to the `refs:` list.
+- Do not include affected app version numbers or version ranges in the scenario. Readers can find those details in the referenced advisory or vulnerability record.
+- Frame the opening around the MASWE weakness. Explain any bugs that enable it in the numbered steps.
+- Verify that the cited case actually demonstrates the MASWE weakness and supports every material claim in the scenario. Do not infer undocumented exploitation steps, attacker capabilities, or impact, and do not include details that remain confidential or were disclosed without authorization.
+- If no suitable public case exists, use a realistic fictional scenario and clearly introduce it as hypothetical, for example with "Suppose a healthcare app..." Include only the details needed to explain the weakness.
+- Keep the scenario concise, normally 80-150 words. Every step must advance the attack. Avoid introductory filler, sensational claims, and outcomes that are not supported by the described chain.
+- Use plain, direct language. For attacker-driven weaknesses, prefer "attacker" to the more abstract "actor." Distinguish the attacker-controlled app from the vulnerable app, and name the asset and storage location or interface precisely. Repeat "the vulnerable app" or "the attacker-controlled app" when a pronoun could refer to either one.
+- Describe changes in trust or access boundaries concretely, including what becomes exposed, who can access it, and which capability, permission, or prerequisite enables that access. Avoid vague comparisons such as "less secure," "more accessible," or "more exploitable" without explaining the changed boundary.
+- Keep each numbered step focused on one distinct part of the attack. Avoid repeating the same fact in the opening and the steps or in consecutive steps. Omit implementation details that do not help explain why the weakness is exploitable.
+- Do not include commands, tool names, code, payloads, detailed testing instructions, or MASTG cross-references. Those belong in MASTG tests, techniques, and demos.
+- Do not turn the scenario into mitigation guidance. Remediation belongs in `## Mitigations`.
+
+Use this general pattern, adapting the wording to the weakness instead of copying it mechanically:
+
+```md
+## Example Attack Scenario
+
+In <publicly documented case or CVE>, <the vulnerable app or component> exposed <asset or operation> through <the security failure represented by this MASWE>.
+
+1. The attacker <meets the prerequisite and initiates the attack>.
+2. The vulnerable app or component <performs the vulnerable behavior>.
+3. Because <the required security property is missing>, the attacker <gains access or control>.
+4. The attacker <accesses specific data or functionality, producing a specific security outcome>.
+```
+
+The scenario must explain the weakness, not teach the reader how to perform a test.
 
 ### `## Impact`
 

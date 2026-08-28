@@ -1,12 +1,13 @@
 ---
 title: Sensitive Data Stored Unencrypted in Private Storage
 id: MASWE-0001
+cves: [CVE-2022-39349, CVE-2023-33188, CVE-2018-19981, CVE-2026-47362, CVE-2024-12094]
 alias: data-unencrypted-private-storage
 requirement: "The app encrypts sensitive data stored in private storage."
 platform: [android, ios]
 profiles: [L2]
 threat: MAS-THREAT-0001
-attacks: [MAS-ATTACK-0005, MAS-ATTACK-0007, MAS-ATTACK-0008]
+attacks: [MAS-ATTACK-0005, MAS-ATTACK-0007, MAS-ATTACK-0008, MAS-ATTACK-0038]
 mappings:
   masvs-v1: [MSTG-STORAGE-2]
   masvs-v2: [MASVS-STORAGE-1, MASVS-STORAGE-2, MASVS-CRYPTO-2]
@@ -34,6 +35,15 @@ Sensitive data may include personally identifiable information (PII), passwords,
 - **Insufficient Encryption**: Encrypting sensitive data with an algorithm or configuration that is not considered strong.
 - **Insufficient Access Restrictions**: Exposing private files to other apps through incorrect file permissions (e.g. the deprecated `MODE_WORLD_READABLE`/`MODE_WORLD_WRITEABLE` file permission modes on Android), a misconfigured `FileProvider`, or Keychain items protected with weak accessibility attributes on iOS (e.g. `kSecAttrAccessibleAlways`).
 - **Data Not Removed After Use**: Retaining sensitive data in private storage (including caches, temporary files, WebView state, and network caches) longer than needed.
+
+## Example Attack Scenario
+
+In CVE-2022-39349, a vulnerable Android app could be induced to copy unencrypted sensitive data from internal storage into more broadly accessible external storage.
+
+1. An attacker-controlled app installed on the same device sends the vulnerable app a crafted share intent that references the vulnerable app's private database.
+2. The vulnerable app accepts the supplied path and copies its private database into an attachments directory located in external storage.
+3. Because the database isn't encrypted, the attacker-controlled app reads the copied data using its external storage permission.
+4. The attacker gains access to sensitive information from the user's notes.
 
 ## Impact
 

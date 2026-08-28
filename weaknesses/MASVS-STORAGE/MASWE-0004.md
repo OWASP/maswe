@@ -1,6 +1,7 @@
 ---
 title: Sensitive Data Hardcoded in the App Package
 id: MASWE-0004
+cves: [CVE-2024-23453, CVE-2022-38117, CVE-2025-55619, CVE-2024-23453, CVE-2024-32988, CVE-2025-2394, CVE-2023-22429, CVE-2021-20748]
 alias: data-hardcoded-app-package
 requirement: "The app does not hardcode sensitive data in the application package."
 platform: [android, ios]
@@ -34,6 +35,15 @@ Note that developer _debug_ artifacts (verbose logging, backdoors, testing utili
 - **App Assets and Resources**: Including secrets in configuration files, manifests, property lists, string resources, and other bundled files.
 - **Libraries**: Including secrets in the configuration files or source code of first-party, third-party, or transitive dependencies.
 - **Build and Developer Leftovers**: Inadvertently packaging staging/integration endpoints, developer identities, and source files with the app.
+
+## Example Attack Scenario
+
+In CVE-2024-23453, a vulnerable Android app included an API key for an external service in its application package.
+
+1. An attacker obtains the publicly distributed application package and analyzes its contents.
+2. The attacker locates the hardcoded API key in the application binary.
+3. Because the key is included in the package, the attacker retrieves it without needing access to another user's device or data.
+4. The attacker uses the extracted API key to gain unexpected access to the associated external service.
 
 ## Impact
 

@@ -1,6 +1,7 @@
 ---
 title: Insertion of Sensitive Data into Logs
 id: MASWE-0005
+cves: [CVE-2022-39043, CVE-2024-6294, CVE-2025-55443, CVE-2020-35456, CVE-2024-8474, CVE-2025-0895, CVE-2025-55443]
 alias: data-in-logs
 requirement: "The app excludes sensitive data from application logs."
 platform: [android, ios]
@@ -30,6 +31,15 @@ Logging all possible information is very useful at development time, especially 
 - **Sensitive Data in System Logs**: Writing sensitive data to the system log via platform logging APIs, often as leftover debugging statements.
 - **Sensitive Data in App Log Files**: Writing sensitive data to custom log files in the app's data directory, e.g. via third-party logging frameworks.
 - **Verbose Logging in Production**: Shipping release builds with debug or verbose log levels still enabled, so diagnostic details containing sensitive data end up in production logs.
+
+## Example Attack Scenario
+
+In CVE-2024-6294, a vulnerable Android app wrote the user's active session to device logs when the user logged in.
+
+1. An attacker with physical access to the device gains access to the device logs.
+2. When the user authenticates, the vulnerable app writes the active session to the device logs.
+3. Because the active session is included in the device logs, the attacker retrieves it from those logs.
+4. The attacker reuses the session to log in to the vulnerable app and associated services as the user.
 
 ## Impact
 
