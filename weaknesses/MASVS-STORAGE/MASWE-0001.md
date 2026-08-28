@@ -19,8 +19,6 @@ refs:
 - https://developer.apple.com/documentation/uikit/protecting_the_user_s_privacy/encrypting_your_app_s_files
 - https://developer.android.com/about/versions/nougat/android-7.0-changes#permfilesys
 - https://developer.android.com/privacy-and-security/security-tips#internal-storage
-- https://github.com/tasks/tasks/security/advisories/GHSA-8x58-cg74-8jg8
-- https://securitylab.github.com/advisories/GHSL-2022-062_Tasks_org/
 ---
 
 ## Overview

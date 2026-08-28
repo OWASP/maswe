@@ -19,8 +19,6 @@ mappings:
 refs:
 - https://developer.android.com/training/data-storage
 - https://developer.android.com/privacy-and-security/security-tips#external-storage
-- https://nvd.nist.gov/vuln/detail/CVE-2025-6748
-- https://github.com/honestcorrupt/CVE-Proof-of-Concept-Airtel-Android-App-Insecure-Local-Storage-of-Sensitive-Data
 ---
 
 ## Overview

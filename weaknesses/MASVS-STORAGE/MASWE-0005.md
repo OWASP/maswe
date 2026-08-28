@@ -18,7 +18,6 @@ mappings:
   maswe-beta: [MASWE-0001]
 refs:
 - https://developer.apple.com/documentation/os/logging/generating_log_messages_from_your_code
-- https://www.twcert.org.tw/en/cp-139-7893-43ecd-2.html
 ---
 
 ## Overview

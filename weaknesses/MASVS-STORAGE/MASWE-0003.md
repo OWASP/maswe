@@ -21,8 +21,6 @@ refs:
 - https://developer.android.com/privacy-and-security/keystore#ImportingEncryptedKeys
 - https://developer.apple.com/documentation/security/certificate_key_and_trust_services/keys/storing_keys_as_data
 - https://developer.android.com/privacy-and-security/keystore#StrongBoxKeyMint
-- https://www.whatsapp.com/security/advisories/2021/
-- https://www.census-labs.ae/resources/whatsapp-exposure-of-tls-12-cryptographic-material-to-third-party-apps
 ---
 
 ## Overview

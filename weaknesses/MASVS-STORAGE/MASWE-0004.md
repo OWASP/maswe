@@ -19,7 +19,6 @@ refs:
 - https://cloud.google.com/docs/authentication/api-keys#securing
 - https://cloud.google.com/docs/authentication/api-keys#api_key_restrictions
 - https://github.com/gitleaks/gitleaks
-- https://jvn.jp/en/jp/JVN96154238/
 ---
 
 ## Overview
