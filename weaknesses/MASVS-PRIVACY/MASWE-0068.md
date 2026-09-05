@@ -23,7 +23,7 @@ refs:
 - https://developer.apple.com/app-store/user-privacy-and-data-use/
 - https://developer.apple.com/documentation/apptrackingtransparency/
 - https://developer.apple.com/documentation/adsupport/asidentifiermanager/advertisingidentifier
-- https://developer.apple.com/documentation/uikit/uidevice/1620059-identifierforvendor/
+- https://developer.apple.com/documentation/uikit/uidevice/identifierforvendor
 - https://developer.apple.com/app-store/ad-attribution/
 - https://developer.apple.com/documentation/adattributionkit
 - https://gdpr-info.eu/recitals/no-30/

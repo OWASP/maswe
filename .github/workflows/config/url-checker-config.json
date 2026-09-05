@@ -12,6 +12,10 @@
         },
         {
             "pattern": "^https://support\\.google\\.com/"
+        },
+        {
+            "comment": "Wayback Machine snapshots frequently return 503 to automated clients",
+            "pattern": "^https://web\\.archive\\.org/"
         }
     ],
     "httpHeaders": [

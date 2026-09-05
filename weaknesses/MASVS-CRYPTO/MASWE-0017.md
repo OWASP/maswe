@@ -26,7 +26,7 @@ Many of the platform's data-protection mechanisms assume a device credential exi
 
 ## Modes of Introduction
 
-- **No Secure-Lock Check**: Enabling sensitive features without verifying the device lock state, e.g., [`KeyguardManager.isDeviceSecure()`](https://developer.android.com/reference/android/app/KeyguardManager#isDeviceSecure()) on Android or [`LAContext.canEvaluatePolicy(_:error:)`](https://developer.apple.com/documentation/localauthentication/lacontext/canevaluatepolicy%28_%3Aerror%3A%29) on iOS.
+- **No Secure-Lock Check**: Enabling sensitive features without verifying the device lock state, e.g., [`KeyguardManager.isDeviceSecure()`](https://developer.android.com/reference/android/app/KeyguardManager#isDeviceSecure()) on Android or [`LAContext.canEvaluatePolicy(_:error:)`](https://developer.apple.com/documentation/localauthentication/lacontext/canevaluatepolicy(_:error:)) on iOS.
 - **Data Protection Not Tied to the Passcode**: Storing sensitive items on iOS without passcode-dependent protection classes (e.g. [`kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly`](https://developer.apple.com/documentation/security/ksecattraccessiblewhenpasscodesetthisdeviceonly)), so the data remains available even when no passcode is set.
 - **Stale Device-Lock Assumption**: Checking the device-lock configuration only during onboarding or feature enrollment and continuing to enable the functionality after the device credential has been removed or the required authentication policy is no longer available.
 
