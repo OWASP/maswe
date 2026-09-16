@@ -4,7 +4,7 @@ id: MASWE-0038
 alias: data-leak-screenshots
 requirement: "The app removes or masks sensitive data from its views when moved to the background, when being recorded or when a screenshot is taken."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0038
 attacks: [MAS-ATTACK-0010, MAS-ATTACK-0071, MAS-ATTACK-0072]
 mappings:

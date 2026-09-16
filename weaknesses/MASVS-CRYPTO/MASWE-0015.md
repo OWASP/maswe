@@ -4,7 +4,7 @@ id: MASWE-0015
 alias: no-key-rotation
 requirement: "The app rotates cryptographic keys regularly."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0015
 attacks: [MAS-ATTACK-0001, MAS-ATTACK-0005]
 mappings:

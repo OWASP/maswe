@@ -4,7 +4,7 @@ id: MASWE-0053
 alias: emulated-virtual-device-detection
 requirement: "The app detects when it is running in an emulated or virtual device environment."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0053
 attacks: [MAS-ATTACK-0003, MAS-ATTACK-0066]
 mappings:

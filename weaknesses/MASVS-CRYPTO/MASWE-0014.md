@@ -4,7 +4,7 @@ id: MASWE-0014
 alias: improper-crypto-key-derivation
 requirement: "The app derives cryptographic keys using approved key derivation functions."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0014
 attacks: [MAS-ATTACK-0025, MAS-ATTACK-0026]
 mappings:

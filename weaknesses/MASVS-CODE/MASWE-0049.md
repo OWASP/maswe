@@ -4,7 +4,7 @@ id: MASWE-0049
 alias: unsafe-code-loading
 requirement: "The app loads dynamic code safely from trusted sources."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0049
 attacks: [MAS-ATTACK-0014, MAS-ATTACK-0057]
 mappings:

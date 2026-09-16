@@ -4,7 +4,7 @@ id: MASWE-0076
 alias: data-management-controls
 requirement: "The app provides adequate controls to manage user data."
 platform: [android, ios]
-profiles: [P]
+profiles: [P, EUDIW]
 threat: MAS-THREAT-0076
 attacks: [MAS-ATTACK-0083]
 mappings:

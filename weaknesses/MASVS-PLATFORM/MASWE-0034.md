@@ -4,7 +4,7 @@ id: MASWE-0034
 alias: webviews-local-resources
 requirement: "The app only allows trusted WebView content to access local resources."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0034
 attacks: [MAS-ATTACK-0047, MAS-ATTACK-0051]
 mappings:

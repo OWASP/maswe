@@ -4,7 +4,7 @@ id: MASWE-0017
 alias: device-secure-lock-not-enforced
 requirement: "The app verifies that the device has a secure lock configured."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0017
 attacks: [MAS-ATTACK-0063]
 mappings:

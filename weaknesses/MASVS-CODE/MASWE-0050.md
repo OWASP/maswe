@@ -4,7 +4,7 @@ id: MASWE-0050
 alias: unsafe-untrusted-data
 requirement: "The app securely handles untrusted data."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0050
 attacks: [MAS-ATTACK-0047, MAS-ATTACK-0059]
 mappings:

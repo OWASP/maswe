@@ -4,7 +4,7 @@ id: MASWE-0040
 alias: data-leak-accessibility
 requirement: "The app prevents sensitive data from being exposed to, or captured by, accessibility services."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0040
 attacks: [MAS-ATTACK-0052]
 mappings:

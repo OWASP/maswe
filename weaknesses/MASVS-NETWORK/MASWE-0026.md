@@ -4,7 +4,7 @@ id: MASWE-0026
 alias: cleartext-traffic
 requirement: "The app encrypts all network traffic."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0026
 attacks: [MAS-ATTACK-0012, MAS-ATTACK-0013, MAS-ATTACK-0014]
 mappings:

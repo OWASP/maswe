@@ -4,7 +4,7 @@ id: MASWE-0063
 alias: debuggable-flag
 requirement: "The app disables debug mechanisms."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0063
 attacks: [MAS-ATTACK-0002, MAS-ATTACK-0003, MAS-ATTACK-0004]
 mappings:

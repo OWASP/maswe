@@ -4,7 +4,7 @@ id: MASWE-0064
 alias: debugger-detection
 requirement: "The app detects debugger attachment at runtime and responds to protect sensitive operations."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0064
 attacks: [MAS-ATTACK-0002]
 mappings:

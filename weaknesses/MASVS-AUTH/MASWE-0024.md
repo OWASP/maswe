@@ -4,7 +4,7 @@ id: MASWE-0024
 alias: session-termination
 requirement: "The app makes sensitive data inaccessible after session termination."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0024
 attacks: [MAS-ATTACK-0005, MAS-ATTACK-0032, MAS-ATTACK-0033]
 mappings:

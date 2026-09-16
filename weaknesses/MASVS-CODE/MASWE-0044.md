@@ -4,7 +4,7 @@ id: MASWE-0044
 alias: dependencies-with-known-vulnerabilities
 requirement: "The app's third-party components are regularly checked for known vulnerabilities."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0044
 attacks: [MAS-ATTACK-0073]
 mappings:

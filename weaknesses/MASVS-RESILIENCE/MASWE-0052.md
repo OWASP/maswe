@@ -4,7 +4,7 @@ id: MASWE-0052
 alias: app-virtualization-detection
 requirement: "The app detects when it is running inside an app-virtualization environment."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0052
 attacks: [MAS-ATTACK-0067]
 mappings:

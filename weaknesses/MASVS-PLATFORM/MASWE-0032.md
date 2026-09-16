@@ -4,7 +4,7 @@ id: MASWE-0032
 alias: insecure-intents
 requirement: "The app securely handles intents."
 platform: [android]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0032
 attacks: [MAS-ATTACK-0047, MAS-ATTACK-0049, MAS-ATTACK-0050]
 mappings:
