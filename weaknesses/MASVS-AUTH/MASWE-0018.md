@@ -4,7 +4,7 @@ id: MASWE-0018
 alias: missing-auth-app-components
 requirement: "The app enforces authentication and authorization on its components."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0018
 attacks: [MAS-ATTACK-0038, MAS-ATTACK-0039]
 mappings:

@@ -4,7 +4,7 @@ id: MASWE-0007
 alias: improper-encryption
 requirement: "The app properly encrypts sensitive data."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0007
 attacks: [MAS-ATTACK-0018, MAS-ATTACK-0021, MAS-ATTACK-0022, MAS-ATTACK-0023]
 mappings:

@@ -4,7 +4,7 @@ id: MASWE-0073
 alias: data-collection-declarations
 requirement: "The app adequately declares all user collected data."
 platform: [android, ios]
-profiles: [P]
+profiles: [P, EUDIW]
 threat: MAS-THREAT-0073
 attacks: [MAS-ATTACK-0081, MAS-ATTACK-0082]
 mappings:

@@ -4,7 +4,7 @@ id: MASWE-0035
 alias: webviews-untrusted-content
 requirement: "The app only allows trusted content in WebViews."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0035
 attacks: [MAS-ATTACK-0047, MAS-ATTACK-0051]
 mappings:

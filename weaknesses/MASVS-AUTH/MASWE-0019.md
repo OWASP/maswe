@@ -4,7 +4,7 @@ id: MASWE-0019
 alias: autofill-authenticators
 requirement: "The app enables auto-fill support for credential providers."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0019
 attacks: [MAS-ATTACK-0041, MAS-ATTACK-0042]
 mappings:

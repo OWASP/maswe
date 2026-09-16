@@ -4,7 +4,7 @@ id: MASWE-0012
 alias: improper-random-number-generation
 requirement: "The app properly generates random numbers."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0012
 attacks: [MAS-ATTACK-0001, MAS-ATTACK-0019, MAS-ATTACK-0024]
 mappings:

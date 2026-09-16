@@ -4,7 +4,7 @@ id: MASWE-0037
 alias: data-leak-notifications
 requirement: "The app does not unnecessarily expose sensitive data through system notifications."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0037
 attacks: [MAS-ATTACK-0044, MAS-ATTACK-0045]
 mappings:

@@ -4,7 +4,7 @@ id: MASWE-0025
 alias: lack-of-non-repudiation
 requirement: "The app ensures non-repudiation for critical actions."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0025
 attacks: [MAS-ATTACK-0036, MAS-ATTACK-0037]
 mappings:

@@ -4,7 +4,7 @@ id: MASWE-0055
 alias: malware-detection
 requirement: "The app detects attacks by malware."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0055
 attacks: [MAS-ATTACK-0036, MAS-ATTACK-0052]
 mappings:

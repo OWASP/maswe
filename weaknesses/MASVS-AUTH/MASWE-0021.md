@@ -4,7 +4,7 @@ id: MASWE-0021
 alias: no-biometric-fallback
 requirement: "The app does not allow fallback to non-biometric credentials for sensitive transactions."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0021
 attacks: [MAS-ATTACK-0034]
 mappings:

@@ -4,7 +4,7 @@ id: MASWE-0039
 alias: tapjacking-attacks
 requirement: "The app protects its sensitive screens against overlay attacks."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0039
 attacks: [MAS-ATTACK-0036]
 mappings:

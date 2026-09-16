@@ -4,7 +4,7 @@ id: MASWE-0046
 alias: deprecated-apis
 requirement: "The app does not use deprecated APIs or functionality."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0046
 attacks: [MAS-ATTACK-0058]
 mappings:

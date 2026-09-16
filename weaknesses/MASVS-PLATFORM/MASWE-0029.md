@@ -4,7 +4,7 @@ id: MASWE-0029
 alias: insecure-deep-links
 requirement: "The app securely handles deep links."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0029
 attacks: [MAS-ATTACK-0046, MAS-ATTACK-0047]
 mappings:

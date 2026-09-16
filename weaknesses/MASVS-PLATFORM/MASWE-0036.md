@@ -4,7 +4,7 @@ id: MASWE-0036
 alias: data-leak-ui
 requirement: "The app does not unnecessarily expose sensitive data through its user interface."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0036
 attacks: [MAS-ATTACK-0005, MAS-ATTACK-0041, MAS-ATTACK-0043]
 mappings:

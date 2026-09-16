@@ -4,7 +4,7 @@ id: MASWE-0023
 alias: step-up-auth
 requirement: "The app enforces step-up authentication before granting access to sensitive functionality."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0023
 attacks: [MAS-ATTACK-0032, MAS-ATTACK-0033]
 mappings:

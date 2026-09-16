@@ -4,7 +4,7 @@ id: MASWE-0058
 alias: runtime-code-integrity
 requirement: "The app detects unauthorized changes to its code and execution flow at runtime."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0058
 attacks: [MAS-ATTACK-0002, MAS-ATTACK-0003]
 mappings:

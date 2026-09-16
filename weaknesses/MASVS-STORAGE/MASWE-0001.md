@@ -4,7 +4,7 @@ id: MASWE-0001
 alias: data-unencrypted-private-storage
 requirement: "The app encrypts sensitive data stored in private storage."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0001
 attacks: [MAS-ATTACK-0005, MAS-ATTACK-0007, MAS-ATTACK-0008]
 mappings:

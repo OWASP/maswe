@@ -4,7 +4,7 @@ id: MASWE-0057
 alias: app-resources-integrity
 requirement: "The app verifies the integrity of its resources."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0057
 attacks: [MAS-ATTACK-0009, MAS-ATTACK-0070]
 mappings:

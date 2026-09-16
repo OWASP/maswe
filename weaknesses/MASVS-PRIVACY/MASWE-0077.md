@@ -4,7 +4,7 @@ id: MASWE-0077
 alias: data-visibility-control
 requirement: "The app provides adequate controls over the visibility of user data."
 platform: [android, ios]
-profiles: [P]
+profiles: [P, EUDIW]
 threat: MAS-THREAT-0077
 attacks: [MAS-ATTACK-0084, MAS-ATTACK-0087]
 mappings:

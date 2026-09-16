@@ -4,7 +4,7 @@ id: MASWE-0042
 alias: target-latest-platform-version
 requirement: "The app targets the latest platform version."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0042
 attacks: [MAS-ATTACK-0056]
 mappings:

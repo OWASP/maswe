@@ -4,7 +4,7 @@ id: MASWE-0005
 alias: data-in-logs
 requirement: "The app excludes sensitive data from application logs."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0005
 attacks: [MAS-ATTACK-0005, MAS-ATTACK-0006]
 mappings:
