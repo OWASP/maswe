@@ -1,6 +1,7 @@
 ---
 title: Improper Generation of Cryptographic Signatures
 id: MASWE-0010
+cves: [CVE-2013-7372]
 alias: improper-signature-generation
 requirement: "The app properly generates cryptographic signatures."
 platform: [android, ios]
@@ -17,6 +18,7 @@ refs:
 - https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf
 - https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf
 - https://csrc.nist.gov/pubs/ir/8547/ipd
+- https://bitcoin.org/en/alert/2013-08-11-android
 ---
 
 ## Overview
@@ -31,6 +33,15 @@ Signatures are only as strong as the scheme and parameters behind them: deprecat
 - **Insufficient Key Length**: Using signing keys shorter than the lengths recommended by current standards for the chosen algorithm.
 - **Predictable Signature Nonces**: Generating the per-signature nonce in (EC)DSA with insufficient entropy, or reusing it across signatures.
 - **Key Reuse Across Purposes**: Using a signing key for other purposes, such as encryption or key agreement, violating key-separation principles.
+
+## Example Attack Scenario
+
+In CVE-2013-7372, a predictable `SecureRandom` implementation affected cryptographic operations in Android apps and was exploited against cryptocurrency wallets.
+
+1. An attacker observes transactions and their cryptographic signatures published by a vulnerable wallet app.
+2. The app generates per-signature nonces using the predictable random-number implementation.
+3. Because the signatures expose relationships involving those nonces, the attacker predicts the values and calculates the wallet's private signing key.
+4. The attacker uses the recovered key to sign transactions that transfer the victim's funds to an attacker-controlled wallet.
 
 ## Impact
 

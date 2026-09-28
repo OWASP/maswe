@@ -1,6 +1,7 @@
 ---
 title: Improper Verification of Cryptographic Signature
 id: MASWE-0011
+cves: [CVE-2024-45750]
 alias: improper-signature-verification
 requirement: "The app properly verifies cryptographic signatures."
 platform: [android, ios]
@@ -15,6 +16,7 @@ mappings:
 refs:
 - https://cwe.mitre.org/data/definitions/347.html
 - https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-5.pdf
+- https://www.thegreenbow.com/en/support/security-alerts/#deeplink-17024
 ---
 
 ## Overview
@@ -28,6 +30,15 @@ Signature verification protects the integrity and authenticity of data such as u
 - **Verification Skipped or Result Ignored**: Not verifying signatures on security-relevant data, or computing the verification but proceeding regardless of its result.
 - **Untrusted or Unpinned Signer Keys**: Accepting signatures without validating the signer's key against a trusted set or certificate chain, or verifying against public keys that ship alongside the data and can be replaced by an attacker.
 - **Algorithm Confusion**: Accepting the algorithm declared by the data being verified (e.g. a token header), including weak, deprecated, or "none" algorithms, instead of enforcing the expected one.
+
+## Example Attack Scenario
+
+In CVE-2024-45750, a vulnerable Android VPN app accepted malformed ECDSA signatures while authenticating a VPN peer during IKEv2 connection setup.
+
+1. The attacker intercepts the app's connection to the expected VPN server.
+2. When the app initiates IKEv2 authentication, the attacker impersonates the VPN server and presents a malformed ECDSA signature.
+3. Because the app incorrectly accepts the malformed signature, it treats the attacker as an authenticated VPN peer.
+4. The app establishes its VPN tunnel with the attacker-controlled endpoint instead of the expected VPN server.
 
 ## Impact
 
