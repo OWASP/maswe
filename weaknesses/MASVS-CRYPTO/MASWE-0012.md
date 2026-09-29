@@ -1,6 +1,7 @@
 ---
 title: Improper Random Number Generation
 id: MASWE-0012
+cves: [CVE-2024-47126]
 alias: improper-random-number-generation
 requirement: "The app properly generates random numbers."
 platform: [android, ios]
@@ -18,6 +19,7 @@ mappings:
 refs:
 - https://datatracker.ietf.org/doc/html/rfc4086
 - https://cheatsheetseries.owasp.org/cheatsheets/Cryptographic_Storage_Cheat_Sheet.html#secure-random-number-generation
+- https://www.cisa.gov/news-events/ics-advisories/icsa-24-270-04
 ---
 
 ## Overview
@@ -31,6 +33,15 @@ A [PRNG](https://en.wikipedia.org/wiki/Pseudorandom_number_generator) generates 
 - **Risky Random APIs**: Using general-purpose random APIs, which do not provide cryptographically secure output, in security-relevant contexts.
 - **Non-Random Sources**: Using custom methods to create "supposedly random" values from non-random sources such as the current time.
 - **Hardcoded or Predictable Seeds**: Seeding a generator deterministically, e.g. with a hardcoded seed value shipped in the app.
+
+## Example Attack Scenario
+
+In CVE-2024-47126, a vulnerable mobile communications app generated passwords for sharing cryptographic keys using a weak random-number generator.
+
+1. An attacker within radio range captures a cryptographic key broadcast through the app's optional key-sharing feature.
+2. The app protects the broadcast key with a password generated using a non-cryptographic random function.
+3. Because the password is insufficiently unpredictable, the attacker brute-forces it with significantly less effort.
+4. The attacker recovers the shared encryption key, compromising the confidentiality of data protected by that key.
 
 ## Impact
 

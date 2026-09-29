@@ -1,6 +1,7 @@
 ---
 title: Improper Cryptographic Key Generation
 id: MASWE-0013
+cves: [CVE-2024-23660]
 alias: improper-crypto-key-generation
 requirement: "The app securely generates cryptographic keys."
 platform: [android, ios]
@@ -23,6 +24,7 @@ refs:
 - https://developer.android.com/reference/javax/crypto/KeyGenerator
 - https://developer.android.com/reference/kotlin/android/security/keystore/KeyProtection
 - https://developer.apple.com/documentation/cryptokit/aes/keywrap
+- https://milksad.info/posts/research-update-5/
 ---
 
 ## Overview
@@ -40,6 +42,15 @@ Mobile platforms provide additional layers of protection for key material, such 
 - **Risky or Broken Algorithms**: Generating keys using deprecated, risky, or inherently broken cryptographic algorithms, which often only support weak key lengths.
 - **Insecure Key Export**: Exporting a key in plaintext when it must leave the secure environment in which it was created (for example, to be backed up or shared with another device), instead of "wrapping" it (encrypting it with another key) as specified in [NIST.SP.800-175Br1 5.3.5](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-175Br1.pdf), even when the key is sent over a secure channel.
 - **Insecure Key Properties**: Generating keys with properties such as an unspecified or overly broad purpose, insecure storage location (e.g. not using secure hardware if available) or access requirements (see @MASWE-0016).
+
+## Example Attack Scenario
+
+In CVE-2024-23660, a vulnerable iOS cryptocurrency wallet used the device time as the only source of entropy when generating wallet mnemonic words.
+
+1. An attacker determines the approximate period in which a victim created a wallet with the vulnerable app.
+2. The attacker generates the mnemonic produced for each possible device timestamp within that period and derives the corresponding wallet addresses.
+3. Because no entropy beyond the device time was used, one generated mnemonic matches the victim's publicly observable wallet address.
+4. The attacker uses the matching mnemonic to derive the victim's private keys and transfer the wallet's funds.
 
 ## Impact
 

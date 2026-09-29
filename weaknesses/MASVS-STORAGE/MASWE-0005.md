@@ -34,12 +34,12 @@ Logging all possible information is very useful at development time, especially 
 
 ## Example Attack Scenario
 
-In CVE-2024-6294, a vulnerable Android app wrote the user's active session to device logs when the user logged in.
+In CVE-2024-6294, a vulnerable Android app wrote the user's session token to device logs when the user logged in.
 
 1. An attacker with physical access to the device gains access to the device logs.
-2. When the user authenticates, the vulnerable app writes the active session to the device logs.
-3. Because the active session is included in the device logs, the attacker retrieves it from those logs.
-4. The attacker reuses the session to log in to the vulnerable app and associated services as the user.
+2. When the user authenticates, the vulnerable app writes the session token to the device logs.
+3. Because the session token is included in the device logs, the attacker retrieves it from those logs.
+4. The attacker reuses the session token to log in to the vulnerable app and associated services as the user.
 
 ## Impact
 
