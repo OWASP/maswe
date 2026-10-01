@@ -1,6 +1,7 @@
 ---
 title: Improper Use of Message Authentication Code (MAC)
 id: MASWE-0009
+cves: [CVE-2024-47123]
 alias: improper-mac
 requirement: "The app properly uses Message Authentication Codes (MACs)."
 platform: [android, ios]
@@ -19,6 +20,7 @@ refs:
 - https://datatracker.ietf.org/doc/html/rfc6151
 - https://web.archive.org/web/20170810051504/http://www.tcs.hut.fi/old/papers/aura/aura-csfws97.pdf
 - https://en.wikipedia.org/wiki/Replay_attack
+- https://www.cisa.gov/news-events/ics-advisories/icsa-24-270-04
 ---
 
 ## Overview
@@ -36,6 +38,15 @@ A MAC provides integrity and authenticity for a message using a shared secret ke
 - **Truncated Tags**: Using authentication tags that are too short, significantly lowering the effort required for forgery.
 - **Missing Replay Protection**: Authenticating messages without a timestamp, nonce, or sequence number, so previously captured valid messages remain acceptable.
 - **Observable Verification Failures**: Exposing timing differences or detailed error messages during MAC verification that can serve as an oracle.
+
+## Example Attack Scenario
+
+In CVE-2024-47123, a vulnerable mobile messaging app encrypted short messages using AES-CTR without authenticating them with a MAC or another integrity mechanism.
+
+1. An attacker gains access to an encrypted message sent by the vulnerable app.
+2. The attacker modifies parts of the ciphertext without knowing the encryption key.
+3. Because the app does not verify a MAC or an authentication tag, it cannot detect that the encrypted message was modified.
+4. The recipient decrypts attacker-modified content and may trust it as a legitimate message from the sender.
 
 ## Impact
 

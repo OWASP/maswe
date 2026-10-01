@@ -1,6 +1,7 @@
 ---
 title: Sensitive Data Not Excluded From Backup
 id: MASWE-0006
+cves: [CVE-2023-36620, CVE-2020-35454, CVE-2020-24366, CVE-2025-50862]
 alias: data-not-excluded-backup
 requirement: "The app excludes sensitive data from backups."
 platform: [android, ios]
@@ -32,6 +33,15 @@ iOS and Android automatically back up app data to cloud services, users can crea
 - **Local Backups**: Allowing sensitive data to be included in backups that users create on local systems (e.g., laptops), where it may be stored unencrypted.
 - **Device-To-Device Transfer**: Allowing sensitive data to be included in device-to-device migrations (e.g., via iCloud or Google's migration tools) without restricting transfer conditions.
 - **Sensitive Data Unencrypted in Backups**: Storing sensitive data in backed-up locations without additional encryption, so it is readable by anyone who obtains the backup.
+
+## Example Attack Scenario
+
+In CVE-2023-36620, a vulnerable Android app allowed its internal data, including an API authentication token, to be included in a device backup.
+
+1. An attacker with physical access to an unlocked device connects it to a computer and creates a backup of the vulnerable app.
+2. The vulnerable app allows its internal data, including the API token, to be included in the backup.
+3. Because the API token is not excluded from the backup, the attacker extracts the backup and reads the token.
+4. The attacker uses the token to authenticate requests to the vulnerable app's API.
 
 ## Impact
 

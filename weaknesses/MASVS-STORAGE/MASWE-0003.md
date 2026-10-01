@@ -1,6 +1,7 @@
 ---
 title: Cryptographic Keys Stored Outside of Platform Keystore
 id: MASWE-0003
+cves: [CVE-2021-24027]
 alias: crypto-keys-not-protected-at-rest
 requirement: "The app stores cryptographic keys inside the platform-provided secure keystore."
 platform: [android, ios]
@@ -33,6 +34,15 @@ Cryptographic keys are essential for securing sensitive data in mobile applicati
 - **Insecure Storage Locations**: Storing cryptographic keys in locations that are not designed for secure storage, such as regular configuration or user preferences files, application data directories, or other areas lacking encryption and access control mechanisms.
 - **Hardcoded Cryptographic Keys**: Including cryptographic keys directly in the application code or in resources shipped with the app package.
 - **Insecure Key Import**: Importing keys into the keystore in plaintext instead of using secure wrapped or encrypted import, exposing the key material outside the secure environment.
+
+## Example Attack Scenario
+
+In CVE-2021-24027, a vulnerable Android messaging app cached TLS 1.2 master key material in external storage.
+
+1. An attacker-controlled app installed on the same device has permission to read external storage.
+2. The vulnerable app writes the TLS 1.2 master key material into its external cache directory.
+3. Because the key material is stored in external storage, the attacker-controlled app reads it using its access to external storage.
+4. The attacker obtains secrets used to protect the vulnerable app's client-to-server communications.
 
 ## Impact
 

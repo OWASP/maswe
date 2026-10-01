@@ -1,6 +1,7 @@
 ---
 title: Improper Hashing
 id: MASWE-0008
+cves: [CVE-2024-4765]
 alias: improper-hashing
 requirement: "The app properly hashes sensitive data."
 platform: [android, ios]
@@ -18,6 +19,7 @@ refs:
 - https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf
 - https://en.wikipedia.org/wiki/Collision_attack
 - https://csrc.nist.gov/pubs/ir/8547/ipd
+- https://www.mozilla.org/security/advisories/mfsa2024-21/
 ---
 
 ## Overview
@@ -31,6 +33,15 @@ Broken algorithms such as MD5 and SHA-1 have practical collision attacks, and NI
 - **Broken Hash Algorithms**: Using algorithms such as MD5 or SHA-1 in contexts that require collision or second-preimage resistance, e.g. digital signatures, integrity verification, or fingerprinting.
 - **Wrong Hash for the Job**: Using a plain, fast hash for password storage or key derivation instead of a password-based KDF (see @MASWE-0014), or using non-cryptographic checksums such as CRC-32 where a cryptographic hash is required.
 - **Truncated Digests**: Truncating hash output below the security strength required by the use case, reducing collision and preimage resistance.
+
+## Example Attack Scenario
+
+In CVE-2024-4765, a vulnerable Android browser used an MD5 hash of each Web App Manifest URL to name the local file containing that web app's configuration.
+
+1. The user adds a legitimate web app to their home screen.
+2. The attacker creates a malicious web app with a colliding manifest URL and convinces the user to add it to their home screen.
+3. Because both manifest URLs produce the same filename, the vulnerable browser overwrites the legitimate app's saved manifest with the malicious manifest.
+4. When the browser later loads the legitimate web app, it reads the attacker-controlled manifest, potentially allowing the attacker to execute arbitrary code in the legitimate web app's context.
 
 ## Impact
 

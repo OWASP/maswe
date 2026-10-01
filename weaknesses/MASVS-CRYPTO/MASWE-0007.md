@@ -1,6 +1,7 @@
 ---
 title: Improper Encryption
 id: MASWE-0007
+cves: [CVE-2019-8919]
 alias: improper-encryption
 requirement: "The app properly encrypts sensitive data."
 platform: [android, ios]
@@ -23,6 +24,7 @@ refs:
 - https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-131Ar2.pdf
 - https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Br2.pdf
 - https://www.usenix.org/legacy/event/woot10/tech/full_papers/Rizzo.pdf
+- https://github.com/haiwen/seadroid/issues/789
 ---
 
 ## Overview
@@ -40,6 +42,15 @@ Encryption is only as strong as its weakest component: the algorithm, the mode o
 - **Insufficient Key Length**: Using key sizes below current recommendations for the chosen algorithm.
 - **Insecure or Wrong Key Usage**: Reusing a single key for multiple purposes (e.g. encryption and signing) or with an unauthorized algorithm, violating key-separation principles. Per [NIST.SP.800-57pt1r5](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf), a single key should be used for only one purpose.
 - **Non-Cryptographic Operations**: Relying on techniques such as XOR, Base64 encoding, or simple obfuscation methods for security purposes. These methods provide no actual encryption.
+
+## Example Attack Scenario
+
+In CVE-2019-8919, a vulnerable Android app reused the same initialization vector (IV) when encrypting private data in CBC mode.
+
+1. An attacker obtains ciphertexts produced by the vulnerable app and supplies chosen input for the app to encrypt.
+2. The vulnerable app encrypts each input with the same key and IV.
+3. Because CBC encryption with a reused IV produces the same first ciphertext block for matching plaintext, the attacker compares encrypted guesses with the target data.
+4. The attacker uses these comparisons to conduct a dictionary attack and recover matching private data.
 
 ## Impact
 

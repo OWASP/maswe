@@ -1,6 +1,7 @@
 ---
 title: Improper Cryptographic Key Derivation
 id: MASWE-0014
+cves: [CVE-2017-11131]
 alias: improper-crypto-key-derivation
 requirement: "The app derives cryptographic keys using approved key derivation functions."
 platform: [android, ios]
@@ -16,6 +17,7 @@ refs:
 - https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-57pt1r5.pdf
 - https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-132.pdf
 - https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html
+- http://seclists.org/fulldisclosure/2017/Jul/90
 ---
 
 ## Overview
@@ -30,6 +32,15 @@ Dedicated password-based KDFs, such as PBKDF2, scrypt, or Argon2, are deliberate
 - **Insufficient Work Factor**: Configuring the KDF with too few iterations or with memory and parallelism parameters below current recommendations.
 - **Missing or Predictable Salt**: Omitting the salt, hardcoding it in the app, or reusing the same salt across users or installations.
 - **Low-Entropy Input**: Deriving keys from inputs with insufficient entropy, such as short PINs or predictable device values, without combining them with additional secret material.
+
+## Example Attack Scenario
+
+In CVE-2017-11131, a vulnerable Android messaging app derived an authentication secret by hashing the user's password directly with SHA-512, without a salt or a password-based key derivation function.
+
+1. An attacker gains access to the service's password hashes.
+2. The attacker hashes candidate passwords with SHA-512 and compares the first 32 bytes of each result with the stored value.
+3. Because the derivation has no salt or work factor, guesses are inexpensive and precomputed rainbow tables can be reused across accounts.
+4. The attacker finds the matching password and uses it to authenticate as the victim.
 
 ## Impact
 

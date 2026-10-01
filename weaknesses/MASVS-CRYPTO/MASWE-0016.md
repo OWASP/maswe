@@ -18,6 +18,7 @@ refs:
 - https://developer.apple.com/documentation/security/restricting-keychain-item-accessibility
 - https://developer.android.com/privacy-and-security/keystore#StrongBoxKeyMint
 - https://developer.apple.com/documentation/security/ksecattrtokenidsecureenclave
+- https://duo.com/learn/psa/duo-psa-2014-008
 ---
 
 ## Overview
@@ -35,6 +36,15 @@ When these restrictions are not configured, any code running as the app, or any 
 - **Not Device-Bound**: Allowing key material to migrate to other devices via backups or transfers instead of using device-only protection classes.
 - **Unbounded Authorization Validity**: Configuring long authentication validity durations so that a single user authentication authorizes key use indefinitely, rather than for a short window or a single operation.
 - **Assuming Hardware Implies Restriction**: Generating keys inside StrongBox or the Secure Enclave without configuring access restrictions, assuming the hardware alone limits who can use the key.
+
+## Example Attack Scenario
+
+In DUO-PSA-2014-008, an iOS authentication app stored a private key in the Keychain without restricting it to the original device. As a result, a backup containing the key could be restored on another device.
+
+1. An attacker obtains a user's encrypted device backup and the password protecting it.
+2. Because the app did not restrict the private key to the original device, the backup contains credentials that can be restored elsewhere.
+3. The attacker restores the backup on an iOS device they control, making the private key available to the app on that device.
+4. The attacker uses the restored key to forge second-factor authentication attempts.
 
 ## Impact
 
