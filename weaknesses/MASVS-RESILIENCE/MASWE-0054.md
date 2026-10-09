@@ -48,7 +48,7 @@ On iOS, DeviceCheck and App Attest do not provide equivalent assurance about ope
 - **Client-Side-Only Verification**: Requesting attestation but evaluating the verdict in the app instead of verifying it server-side.
 - **Missing Freshness Guarantees**: Verifying attestation without a server-issued nonce or timeliness check, allowing verdicts to be replayed.
 - **Verdicts Not Enforced**: Collecting attestation results but not gating sensitive operations on them.
-- **Incomplete Evidence Validation**: Accepting device-attestation evidence without applying the service-specific checks for request binding, replay protection, and the device claims required by the backend's policy.
+- **Incomplete Evidence Validation**: Accepting device-attestation evidence without applying the service-specific checks for request binding, replay protection, and the device claims the operation's risk level requires.
 
 ## Impact
 
@@ -62,3 +62,4 @@ On iOS, DeviceCheck and App Attest do not provide equivalent assurance about ope
 - **Verify Server-Side with Freshness**: Have the backend verify attestation tokens cryptographically, bind them to a server-issued nonce, and check timeliness before trusting them.
 - **Gate Sensitive Operations on Verdicts**: Require valid attestation for high-risk API calls and degrade or deny service to unattested clients.
 - **Layer with Local Checks**: Combine attestation with local environment checks (see @MASWE-0051, @MASWE-0053) for defense in depth, and assess the overall scheme against known bypasses.
+- **Match the Verdict to the Operation**: Require the integrity level each operation calls for, keeping stricter signals such as a recent security patch for high-risk actions.
