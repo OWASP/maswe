@@ -11,7 +11,6 @@ mappings:
   masvs-v1: [MSTG-STORAGE-1, MSTG-CODE-2]
   masvs-v2: [MASVS-STORAGE-1]
   cwe: [312, 321, 540, 798]
-  asvs: [v5.0.0-7.2.2, v5.0.0-8.2.1, v5.0.0-8.3.1, v5.0.0-10.4.5]
   android-risks:
   - insecure-api-usage
   maswe-beta: [MASWE-0005, MASWE-0013, MASWE-0036]
