@@ -4,7 +4,7 @@ id: MASWE-0071
 alias: unsafe-defaults-privacy-actions
 requirement: "The app uses adequate defaults for privacy relevant actions."
 platform: [android, ios]
-profiles: [P]
+profiles: [P, EUDIW]
 threat: MAS-THREAT-0071
 attacks: [MAS-ATTACK-0084, MAS-ATTACK-0087]
 mappings:

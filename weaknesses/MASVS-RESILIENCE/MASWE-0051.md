@@ -4,7 +4,7 @@ id: MASWE-0051
 alias: root-jailbreak-detection
 requirement: "The app detects if it runs on a rooted/jailbroken device and reacts appropriately."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0051
 attacks: [MAS-ATTACK-0003, MAS-ATTACK-0005, MAS-ATTACK-0065]
 mappings:

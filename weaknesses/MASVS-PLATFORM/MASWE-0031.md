@@ -4,7 +4,7 @@ id: MASWE-0031
 alias: insecure-app-extensions
 requirement: "The app only permits trusted app extensions to interact with it."
 platform: [ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0031
 attacks: [MAS-ATTACK-0048]
 mappings:

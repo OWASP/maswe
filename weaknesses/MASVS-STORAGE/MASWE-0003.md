@@ -4,7 +4,7 @@ id: MASWE-0003
 alias: crypto-keys-not-protected-at-rest
 requirement: "The app stores cryptographic keys inside the platform-provided secure keystore."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0003
 attacks: [MAS-ATTACK-0001, MAS-ATTACK-0005, MAS-ATTACK-0008]
 mappings:

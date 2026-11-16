@@ -4,7 +4,7 @@ id: MASWE-0009
 alias: improper-mac
 requirement: "The app properly uses Message Authentication Codes (MACs)."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0009
 attacks: [MAS-ATTACK-0018, MAS-ATTACK-0021, MAS-ATTACK-0029, MAS-ATTACK-0090]
 mappings:

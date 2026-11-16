@@ -4,7 +4,7 @@ id: MASWE-0070
 alias: inadequate-awareness-privacy-actions
 requirement: "The app informs the user about the privacy implications before performing an action."
 platform: [android, ios]
-profiles: [P]
+profiles: [P, EUDIW]
 threat: MAS-THREAT-0070
 attacks: [MAS-ATTACK-0084]
 mappings:

@@ -4,7 +4,7 @@ id: MASWE-0059
 alias: code-obfuscation
 requirement: "The app implements code obfuscation."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0059
 attacks: [MAS-ATTACK-0001]
 mappings:

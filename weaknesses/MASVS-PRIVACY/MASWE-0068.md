@@ -4,7 +4,7 @@ id: MASWE-0068
 alias: unique-identifiers-user-tracking
 requirement: "The app does not use persistent or unique identifiers in a way that enables user tracking."
 platform: [android, ios]
-profiles: [P]
+profiles: [P, EUDIW]
 threat: MAS-THREAT-0068
 attacks: [MAS-ATTACK-0074, MAS-ATTACK-0077]
 mappings:

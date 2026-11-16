@@ -4,7 +4,7 @@ id: MASWE-0060
 alias: resource-obfuscation
 requirement: "The app applies resource obfuscation to hinder reverse engineering."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0060
 attacks: [MAS-ATTACK-0001]
 mappings:

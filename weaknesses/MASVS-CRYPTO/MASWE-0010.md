@@ -4,7 +4,7 @@ id: MASWE-0010
 alias: improper-signature-generation
 requirement: "The app properly generates cryptographic signatures."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0010
 attacks: [MAS-ATTACK-0018, MAS-ATTACK-0021, MAS-ATTACK-0030]
 mappings:

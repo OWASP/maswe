@@ -4,7 +4,7 @@ id: MASWE-0006
 alias: data-not-excluded-backup
 requirement: "The app excludes sensitive data from backups."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0006
 attacks: [MAS-ATTACK-0008, MAS-ATTACK-0009]
 mappings:

@@ -4,7 +4,7 @@ id: MASWE-0065
 alias: dynamic-analysis-tools
 requirement: "The app detects dynamic analysis tools and responds to protect sensitive operations."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0065
 attacks: [MAS-ATTACK-0003]
 mappings:

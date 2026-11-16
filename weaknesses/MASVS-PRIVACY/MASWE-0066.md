@@ -4,7 +4,7 @@ id: MASWE-0066
 alias: inadequate-permission-management
 requirement: "The app adequately manages permissions."
 platform: [android, ios]
-profiles: [P]
+profiles: [P, EUDIW]
 threat: MAS-THREAT-0066
 attacks: [MAS-ATTACK-0088, MAS-ATTACK-0089]
 mappings:

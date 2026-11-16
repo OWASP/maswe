@@ -4,7 +4,7 @@ id: MASWE-0067
 alias: anonymization-pseudonymization-measures
 requirement: "The app uses anonymization or pseudonymisation measures."
 platform: [android, ios]
-profiles: [P]
+profiles: [P, EUDIW]
 threat: MAS-THREAT-0067
 attacks: [MAS-ATTACK-0074, MAS-ATTACK-0078]
 mappings:

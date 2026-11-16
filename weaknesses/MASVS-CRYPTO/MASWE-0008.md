@@ -4,7 +4,7 @@ id: MASWE-0008
 alias: improper-hashing
 requirement: "The app properly hashes sensitive data."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0008
 attacks: [MAS-ATTACK-0028]
 mappings:

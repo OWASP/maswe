@@ -4,7 +4,7 @@ id: MASWE-0045
 alias: compiler-provided-security-features-not-implemented
 requirement: "The app uses the compiler-provided security features of the platform."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0045
 attacks: [MAS-ATTACK-0001, MAS-ATTACK-0059]
 mappings:

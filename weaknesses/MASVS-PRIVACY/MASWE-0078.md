@@ -4,7 +4,7 @@ id: MASWE-0078
 alias: ambiguous-consent-mechanisms
 requirement: "The app requests user consent prior to any data processing."
 platform: [android, ios]
-profiles: [P]
+profiles: [P, EUDIW]
 threat: MAS-THREAT-0078
 attacks: [MAS-ATTACK-0085, MAS-ATTACK-0086]
 mappings:

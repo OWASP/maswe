@@ -4,7 +4,7 @@ id: MASWE-0022
 alias: crypto-keys-biometric-enrollment
 requirement: "The app invalidates keys after any enrollment of new biometric data."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0022
 attacks: [MAS-ATTACK-0035]
 mappings:

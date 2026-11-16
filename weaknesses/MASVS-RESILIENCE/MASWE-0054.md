@@ -4,7 +4,7 @@ id: MASWE-0054
 alias: device-attestation
 requirement: "The app implements device attestation."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0054
 attacks: [MAS-ATTACK-0065, MAS-ATTACK-0066, MAS-ATTACK-0068]
 mappings:

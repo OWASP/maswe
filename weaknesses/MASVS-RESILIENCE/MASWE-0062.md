@@ -4,7 +4,7 @@ id: MASWE-0062
 alias: data-unencrypted
 requirement: "The app applies application-level payload encryption in addition to transport-layer encryption."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0062
 attacks: [MAS-ATTACK-0064]
 mappings:

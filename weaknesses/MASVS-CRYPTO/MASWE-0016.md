@@ -4,7 +4,7 @@ id: MASWE-0016
 alias: crypto-key-access-not-restricted
 requirement: "The app restricts access to cryptographic keys."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0016
 attacks: [MAS-ATTACK-0002, MAS-ATTACK-0003, MAS-ATTACK-0027]
 mappings:

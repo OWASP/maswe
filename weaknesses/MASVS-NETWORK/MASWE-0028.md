@@ -4,7 +4,7 @@ id: MASWE-0028
 alias: insecure-pinning
 requirement: "The app correctly implements identity pinning."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0028
 attacks: [MAS-ATTACK-0014, MAS-ATTACK-0016, MAS-ATTACK-0017]
 mappings:

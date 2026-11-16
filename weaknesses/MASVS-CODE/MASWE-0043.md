@@ -4,7 +4,7 @@ id: MASWE-0043
 alias: enforced-updating
 requirement: "The app detects if it must be updated and reacts appropriately."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0043
 attacks: [MAS-ATTACK-0040, MAS-ATTACK-0053]
 mappings:

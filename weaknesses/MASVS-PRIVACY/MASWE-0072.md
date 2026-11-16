@@ -4,7 +4,7 @@ id: MASWE-0072
 alias: privacy-policy
 requirement: "The app provides an adequate privacy policy."
 platform: [android, ios]
-profiles: [P]
+profiles: [P, EUDIW]
 threat: MAS-THREAT-0072
 attacks: [MAS-ATTACK-0079, MAS-ATTACK-0080]
 mappings:

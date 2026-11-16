@@ -4,7 +4,7 @@ id: MASWE-0018
 alias: missing-auth-app-components
 requirement: "The app enforces authentication and authorization on its components."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0018
 attacks: [MAS-ATTACK-0038, MAS-ATTACK-0039]
 mappings:
@@ -17,6 +17,7 @@ mappings:
   - access-control-to-exported-components
   - android-exported
   - custom-permissions
+  - file-providers
   android-core-app-quality: [Component_Export, Component_Permissions, Component_Protection]
   maswe-beta: [MASWE-0033, MASWE-0038, MASWE-0040, MASWE-0051, MASWE-0059, MASWE-0062, MASWE-0063, MASWE-0064, MASWE-0065, MASWE-0119]
 refs:
@@ -25,8 +26,6 @@ refs:
 - https://developer.android.com/privacy-and-security/security-tips#BroadcastReceivers
 - https://developer.android.com/privacy-and-security/security-tips#ContentProviders
 - https://developer.android.com/privacy-and-security/security-tips#binder-and-messenger-interfaces
-- https://developer.android.com/topic/security/risks/content-resolver
-- https://developer.android.com/topic/security/risks/file-providers
 ---
 
 ## Overview

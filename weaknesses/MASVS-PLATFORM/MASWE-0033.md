@@ -4,7 +4,7 @@ id: MASWE-0033
 alias: js-bridges-webviews
 requirement: "The app does not expose sensitive native functionality to WebView content."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0033
 attacks: [MAS-ATTACK-0047, MAS-ATTACK-0051]
 mappings:

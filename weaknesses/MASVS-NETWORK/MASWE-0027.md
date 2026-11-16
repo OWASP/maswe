@@ -4,7 +4,7 @@ id: MASWE-0027
 alias: insecure-cert-validation
 requirement: "The app validates certificates for all network traffic."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0027
 attacks: [MAS-ATTACK-0014, MAS-ATTACK-0015]
 mappings:

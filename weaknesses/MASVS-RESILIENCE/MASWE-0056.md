@@ -4,7 +4,7 @@ id: MASWE-0056
 alias: app-integrity
 requirement: "The app implements app attestation."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0056
 attacks: [MAS-ATTACK-0040, MAS-ATTACK-0068, MAS-ATTACK-0069]
 mappings:

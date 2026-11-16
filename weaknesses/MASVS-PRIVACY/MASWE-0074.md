@@ -4,7 +4,7 @@ id: MASWE-0074
 alias: tracking-domains-declarations
 requirement: "The app adequately declares all tracking domains it connects to."
 platform: [android, ios]
-profiles: [P]
+profiles: [P, EUDIW]
 threat: MAS-THREAT-0074
 attacks: [MAS-ATTACK-0074, MAS-ATTACK-0075]
 mappings:

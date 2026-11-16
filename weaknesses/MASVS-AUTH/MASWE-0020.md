@@ -4,7 +4,7 @@ id: MASWE-0020
 alias: event-bound-biometric-auth
 requirement: "The app implements local authentication securely."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0020
 attacks: [MAS-ATTACK-0002, MAS-ATTACK-0003, MAS-ATTACK-0027, MAS-ATTACK-0040]
 mappings:

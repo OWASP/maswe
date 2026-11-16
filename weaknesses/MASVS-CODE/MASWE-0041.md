@@ -4,7 +4,7 @@ id: MASWE-0041
 alias: run-on-recent-platform-version
 requirement: "The app detects if it is running on an unsupported OS version and reacts appropriately."
 platform: [android, ios]
-profiles: [L2]
+profiles: [L2, EUDIW]
 threat: MAS-THREAT-0041
 attacks: [MAS-ATTACK-0054, MAS-ATTACK-0055]
 mappings:

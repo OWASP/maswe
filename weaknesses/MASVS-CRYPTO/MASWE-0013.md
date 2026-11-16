@@ -4,7 +4,7 @@ id: MASWE-0013
 alias: improper-crypto-key-generation
 requirement: "The app securely generates cryptographic keys."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0013
 attacks: [MAS-ATTACK-0018, MAS-ATTACK-0019, MAS-ATTACK-0020]
 mappings:

@@ -4,7 +4,7 @@ id: MASWE-0002
 alias: data-unencrypted-shared-storage-no-user-interaction
 requirement: "The app encrypts sensitive data stored outside of private storage."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0002
 attacks: [MAS-ATTACK-0010, MAS-ATTACK-0011]
 mappings:

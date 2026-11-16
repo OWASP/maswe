@@ -4,7 +4,7 @@ id: MASWE-0004
 alias: data-hardcoded-app-package
 requirement: "The app does not hardcode sensitive data in the application package."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0004
 attacks: [MAS-ATTACK-0001]
 mappings:

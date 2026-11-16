@@ -4,7 +4,7 @@ id: MASWE-0069
 alias: non-privacy-preserving-functionality
 requirement: "The app uses privacy-preserving functionality."
 platform: [android, ios]
-profiles: [P]
+profiles: [P, EUDIW]
 threat: MAS-THREAT-0069
 attacks: [MAS-ATTACK-0076, MAS-ATTACK-0088]
 mappings:

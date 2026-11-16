@@ -4,7 +4,7 @@ id: MASWE-0030
 alias: improper-clipboard
 requirement: "The app uses the clipboard securely and only with user consent."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0030
 attacks: [MAS-ATTACK-0041]
 mappings:

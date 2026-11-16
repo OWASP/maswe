@@ -4,7 +4,7 @@ id: MASWE-0061
 alias: non-production-resources
 requirement: "The app does not contain debug artifacts."
 platform: [android, ios]
-profiles: [R]
+profiles: [R, EUDIW]
 threat: MAS-THREAT-0061
 attacks: [MAS-ATTACK-0001, MAS-ATTACK-0006]
 mappings:

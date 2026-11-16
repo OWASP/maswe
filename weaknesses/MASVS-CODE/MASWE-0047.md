@@ -4,7 +4,7 @@ id: MASWE-0047
 alias: non-standard-security-apis
 requirement: "The app uses standard APIs for security-critical functionality."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0047
 attacks: [MAS-ATTACK-0001, MAS-ATTACK-0014, MAS-ATTACK-0021]
 mappings:

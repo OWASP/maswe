@@ -4,7 +4,7 @@ id: MASWE-0011
 alias: improper-signature-verification
 requirement: "The app properly verifies cryptographic signatures."
 platform: [android, ios]
-profiles: [L1, L2]
+profiles: [L1, L2, EUDIW]
 threat: MAS-THREAT-0011
 attacks: [MAS-ATTACK-0031]
 mappings:
