@@ -8,6 +8,7 @@ profiles: [P, EUDIW]
 threat: MAS-THREAT-0066
 attacks: [MAS-ATTACK-0088, MAS-ATTACK-0089]
 mappings:
+  masvs-v1: [MSTG-PLATFORM-1]
   masvs-v2: [MASVS-PRIVACY-1]
   cwe: [250]
   android-core-app-quality: [Minimize_Permissions, Sensitive_Permissions, Runtime_Permissions, Permission_Rationale, Graceful_Degradation]
